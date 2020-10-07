@@ -14,6 +14,7 @@ for (i; i < 10; i++) console.log("Let is cool");
 console.log("Value of i after the for loop: " + i);
 
 // Const variables are the ones that will not have its values reassigned
+// Const usually is used whithin functions, methods... Its scope is smaller than let's scope.
 const name = "Lucas Biazi Ferreira";
 function my_quote() {
   console.log(
