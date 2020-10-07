@@ -14,20 +14,21 @@
       <form>
         <!-- Weight input -->
         <div class="inputs">
-          <p>Weight:</p>
-          <input type="number" placeholder="0" id="weight" />
+          <label>Weight:</label>
+          <input placeholder="0 kg" type="number" placeholder="0" id="weight" />
         </div>
         <!-- Height input -->
         <div class="inputs">
-          <p>Heigth:</p>
-          <input type="number" placeholder="0" id="height" />
+          <label>Heigth:</label>
+          <input placeholder="0 m" type="number" placeholder="0" id="height" />
         </div>
       </form>
       <!-- Button that calls the js function calculate -->
       <button onclick="calculate()">Calculate BMI</button>
       <!-- Shows the result -->
       <div class="result_div">
-        <p class="result" id="result"></p>
+        <p id="result">BMI: 0</p>
+        <p class="result2" id="result2">_</p>
       </div>
     </div>
   </body>
