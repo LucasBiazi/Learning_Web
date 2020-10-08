@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../js/script.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
     <title>Miles to Km</title>
-  </head>
-  <body>
-    <div>
-        <!-- Reversing the measures = reCalculating the value, so it is always up to date -->
-        <input onchange="revert_measures(),Calculate()" id="measures" type="checkbox">Revert measures</input>
-      <form>
-        <div>
-          <label id="main_measure_label" for="main_measure_value">Miles</label>
-          <input
-            id="main_measure_value"
-            type="number"
-            placeholder="0"
-            oninput="Calculate()"
-          />
+</head>
+
+<body>
+    <form>
+        <div class="checkbox_div">
+            <!-- Reversing the measures = reCalculating the value, so it is always up to date -->
+            <input onchange="revert_measures(),Calculate()" id="measures" type="checkbox"></input>
+            <label class="adjust" for="measures">Revert measures</label>
         </div>
-      </form>
-      <label id="second_measure_value">0</label>
-  <label id="second_measure_label">km</label>
-    </div>
-  </body>
+        <div class="input_div">
+            <input class="main_input" id="main_measure_value" type="number" placeholder="0" oninput="Calculate()" />
+            <label id="main_measure_label" for="main_measure_value">Miles</label>
+        </div>
+        <div class="result_label_div">
+            <label class="main_result" id="second_measure_value">0</label>
+            <label id="second_measure_label">km</label>
+        </div>
+    </form>
+</body>
+
 </html>

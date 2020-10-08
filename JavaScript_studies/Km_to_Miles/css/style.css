@@ -1,0 +1,195 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    320deg,
+    rgb(184, 238, 235),
+    rgb(219, 160, 211),
+    rgb(253, 253, 158)
+  );
+}
+
+form {
+  height: 250px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.adjust {
+  width: 220px;
+  margin-left: 20px;
+  border: none;
+}
+
+.checkbox_div {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+label {
+  width: 100px;
+  font-size: 25px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-style: solid;
+  border-bottom-color: white;
+  border-width: 3px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+input {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-bottom-color: white;
+  border-width: 3px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  color: white;
+  font-size: 25px;
+  display: flex;
+  align-items: flex-end;
+}
+
+::placeholder {
+  display: flex;
+  align-items: flex-end;
+  color: white;
+}
+
+.input_div {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.main_input,
+.main_result {
+  width: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.main_result {
+  border-bottom-color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.result_label_div {
+  font-size: 25px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+@media only screen and (min-height: 800px) {
+  form {
+    height: 350px;
+  }
+  .adjust {
+    width: 280px;
+  }
+
+  label {
+    font-size: 30px;
+  }
+  ::placeholder {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  form {
+    height: 500px;
+  }
+  .adjust {
+    width: 480px;
+  }
+
+  label {
+    font-size: 40px;
+  }
+  ::placeholder {
+    font-size: 40px;
+  }
+  input {
+    height: 40px;
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  form {
+    height: 500px;
+  }
+  .adjust {
+    width: 480px;
+  }
+
+  label {
+    font-size: 40px;
+  }
+  ::placeholder {    
+    font-size: 40px;
+  }
+  input {
+    height: 45px;
+  }
+  .main_input,
+  .main_result {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 3000px) {
+  form {
+    height: 1000px;
+  }
+  .adjust {
+    width: 600px;
+  }
+
+  label {
+    font-size: 65px;
+  }
+  ::placeholder {    
+    font-size: 70px;
+  }
+  input {
+    font-size: 70px;
+    height: 90px;
+  }
+  .main_input,
+  .main_result {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+}

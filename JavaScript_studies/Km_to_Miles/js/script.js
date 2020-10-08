@@ -3,7 +3,7 @@ function revert_measures() {
   // If it was toggled, then change the measure values and labels content
   if (document.getElementById("measures").checked) {
     document.getElementById("main_measure_label").textContent = "Km";
-    document.getElementById("second_measure_label").textContent = "miles";
+    document.getElementById("second_measure_label").textContent = "Miles";
     let multiplicator = 0.6;
     return multiplicator;
   } else {
