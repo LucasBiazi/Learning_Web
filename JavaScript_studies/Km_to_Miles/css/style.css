@@ -105,6 +105,8 @@ input {
   align-items: flex-end;
 }
 
+/* From now on, it's just adjustment. Mobile, Tablet, pc and tv. */
+
 @media only screen and (min-height: 800px) {
   form {
     height: 350px;
