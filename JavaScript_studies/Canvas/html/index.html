@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <img
+      width="25"
+      width="25"
+      id="little_fox"
+      src="../../../media/fox.jpg"
+      alt="Fox"
+    />
+  </head>
+  <body>
+    <!-- Creating the canvas, aka: area in which we can drawn. -->
+    <canvas
+      id="rectangle"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="line"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="circle"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="gradient"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="gradient2"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="text"
+      width="200"
+      height="200"
+      style="border: 3px solid black"
+    ></canvas>
+    <canvas
+      id="img"
+      width="1250"
+      height="500"
+      style="border: 3px solid black"
+    ></canvas>
+    <script>
+      // Get the canvas
+      const rectangle = document.getElementById("rectangle");
+      const line = document.getElementById("line");
+      const circle = document.getElementById("circle");
+      const gradient = document.getElementById("gradient");
+      const gradient2 = document.getElementById("gradient2");
+      const text = document.getElementById("text");
+      const img = document.getElementById("img");
+
+      // Get a build in HTML object with getContext(),
+      // it gives us the drawing methods. We'll use it drawn inside our canvas.
+      const drawn_rectangle = rectangle.getContext("2d");
+      const drawn_line = line.getContext("2d");
+      const drawn_circle = circle.getContext("2d");
+      const drawn_gradient_rectangle = gradient.getContext("2d");
+      const drawn_gradient2 = gradient2.getContext("2d");
+      const write_text = text.getContext("2d");
+      const image = img.getContext("2d");
+
+      // Drawing a rectangle:
+      // Color.
+      drawn_rectangle.fillStyle = "#000000";
+      // Drawig a rectangle(x,y,width,height)
+      drawn_rectangle.fillRect(75, 75, 50, 50);
+
+      // Drawing a line that starts here:
+      drawn_line.moveTo(20, 20);
+      // Ends here:
+      drawn_line.lineTo(180, 180);
+      // Method
+      drawn_line.stroke();
+
+      // Drawn a circle, we need to start a path for this one
+      drawn_circle.beginPath();
+      // arc(x,y,radius,startangle(0),endangle(2 * Math.PI))
+      drawn_circle.arc(145, 100, 50, 0, 2 * Math.PI);
+      // Method
+      drawn_circle.stroke();
+
+      // Filling a rectangle with a gradient
+      // Creates the gradient
+      let my_gradient = drawn_gradient_rectangle.createLinearGradient(
+        0,
+        0,
+        200,
+        0
+      );
+      my_gradient.addColorStop(0, "purple");
+      my_gradient.addColorStop(1, "pink");
+      // Creating the rectangle + inserting the gradient
+      drawn_gradient_rectangle.fillStyle = my_gradient;
+      drawn_gradient_rectangle.fillRect(0, 0, 200, 200);
+
+      // Radial gradient
+      // Creating a radial Gradient
+      let my_radial_gradient = drawn_gradient2.createRadialGradient(
+        50,
+        50,
+        5,
+        90,
+        60,
+        100
+      );
+      my_radial_gradient.addColorStop(0, "red");
+      my_radial_gradient.addColorStop(1, "yellow");
+      //Drawing a form
+      drawn_gradient2.fillStyle = my_radial_gradient;
+      drawn_gradient2.fillRect(25, 25, 150, 150);
+
+      // Writing
+      write_text.font = "45px Arial";
+      write_text.fillStyle = "purple";
+      write_text.fillText("Lucas de", 10, 100);
+      write_text.strokeText("Biazi", 10, 145);
+
+      // Images (in a function, as soon as the page loads)
+      window.onload = function () {
+        let little_fox_ears = document.getElementById("little_fox");
+        image.drawImage(little_fox_ears, 0, 0);
+      };
+    </script>
+    <style>
+      img {
+        display: none;
+      }
+
+      body {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+    </style>
+  </body>
+</html>
