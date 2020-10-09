@@ -10,17 +10,27 @@
     <title>List Display</title>
   </head>
   <body>
+    <!-- Main container -->
     <div class="main">
+      <!-- Container that owns the buttons + table-->
       <div class="components">
-        <button id="load_list" onclick="fill_table()">Load List</button>
+        <!-- Buttons container -->
+        <div class="buttons_div">
+          <button id="load_list" onclick="fill_table()">Load List</button>
+          <button id="load_list" onclick="fill_table()">Reset List</button>
+          <button id="load_list" onclick="fill_table()">Download</button>
+          <button id="load_list" onclick="fill_table()">Save Page</button>
+        </div>
+        <!-- Table an its headers -->
         <table id="table">
-          <tr class="odd">
-            <th>Name</th>
-            <th>Age</th>
-            <th>Quote</th>
-            <th>Random Number</th>
+          <tr class="first_row odd">
+            <th class="th_name">Name</th>
+            <th class="th_age">Age</th>
+            <th class="th_quote">Quote</th>
+            <th class="th_rn">Random Number</th>
           </tr>
-        </table>
+        </table>        
+      </div>
       </div>
     </div>
   </body>

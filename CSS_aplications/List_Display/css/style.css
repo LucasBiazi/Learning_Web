@@ -1,39 +1,59 @@
+/* Setting the basic configurations, making the browsers talk the same language */
 * {
   padding: 0px;
   margin: 0px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Body ocupates the whole page, aligning/justfing itens + color */
 body {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: #b5e7a0;
 }
 
+/* Main conteiner, aligning/justfing itens + color */
+
 .main {
   width: 900px;
-  height: 550px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: visible;
   background-color: #e3eaa7;
   border-radius: 15px;
-  overflow: auto;
 }
 
+/* aligning/justfing itens. 
+Appending the scroll bar, hence limitting the content displayed. */
+
 .components {
-  margin-top: 50px;
-  height: 150px;
+  margin-top: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+  overflow-y: scroll;
 }
+
+/* Aligning/justfing itens.  */
+
+.buttons_div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styling the button*/
 
 button {
   font-size: 25px;
@@ -44,24 +64,58 @@ button {
   border-radius: 5px;
 }
 
+/* When whe hover over the button, change its color */
+
 button:hover {
   cursor: pointer;
   background-color: #86af49;
 }
 
+/* Defining the table's properties */
+
 table {
+  width: 800px;
   margin-bottom: 20px;
+
 }
 
-table,
+/* Manipulating the first row (headers) to stick on the screen when scrolled. */
+
+.first_row {
+  top: 0px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* Styling table headers + table datas */
 th,
 td {
-  width: 800px;
   height: 30px;
   padding: 2px;
-  border: 3px solid black;
-  border-collapse: collapse;
 }
+
+/* Styling the size of the headers */
+.th_name {
+  width: 90px;
+}
+.th_age {
+  width: 60px;
+}
+.th_quote {
+  width: 400px;
+}
+
+/* Adding the border */
+
+table,
+td,
+th {
+  border: 2px solid black;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* When we hover over the itens, paint them */
 
 th:hover,
 td:hover {
@@ -69,6 +123,14 @@ td:hover {
   background-color: #86af49;
 }
 
+/* Paint the odd rows */
+
 .odd {
   background-color: #b5e7a0;
+}
+
+/* For the last cell, align its content in the ent */
+
+.fourth_cell {
+  text-align: end;
 }

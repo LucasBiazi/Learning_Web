@@ -1,7 +1,9 @@
+// Getting a random number among 0 - 10
 function random_number() {
   return Math.floor(Math.random() * 10);
 }
 
+// Alternating among the properties of the object, based on a value (x)
 function alternating(x) {
   switch (x) {
     case 0:
@@ -25,7 +27,9 @@ function alternating(x) {
 }
 
 function fill_table() {
+  // Getting access to 'table'
   const tabel = document.getElementById("table");
+  // Declaring an object array, all values are fake.
   const database = [
     {
       name: "Lucas",
@@ -65,11 +69,26 @@ function fill_table() {
       rn: random_number(),
     },
   ];
+  // Going through the array (executes 12 times)
   for (let i = 0; i < database.length; i++) {
-    let row = tabel.insertRow(i+1);
+    // Inserting a new row each time the loop is executed
+    // We sum one because index(0) = header's row
+    let row = tabel.insertRow(i + 1);
+    // If the row is an odd one, paint its background
+    if (i % 2 != 0) {
+      row.className = "odd";
+    }
+    let cell;
+    // Creates 4 cells, fill each cell with one property
+    // of the object obtained in 'database' (executes 4 times)
     for (let x = 0; x < 4; x++) {
-      let cell = row.insertCell(x);
+      cell = row.insertCell(x);
+      // i = 0 - 11
+      // x = 0 - 3
+      // database (position [i], property [x]) 
       cell.innerHTML = database[i][alternating(x)];
     }
+    // For each last cell of each row, we format its value display
+    cell.className = "fourth_cell";
   }
 }
