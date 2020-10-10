@@ -28,7 +28,7 @@ function alternating(x) {
 
 function fill_table() {
   // Getting access to 'table'
-  const tabel = document.getElementById("table");
+  const table = document.getElementById("table");
   // Declaring an object array, all values are fake.
   const database = [
     {
@@ -73,7 +73,7 @@ function fill_table() {
   for (let i = 0; i < database.length; i++) {
     // Inserting a new row each time the loop is executed
     // We sum one because index(0) = header's row
-    let row = tabel.insertRow(i + 1);
+    let row = table.insertRow(i + 1);
     // If the row is an odd one, paint its background
     if (i % 2 != 0) {
       row.className = "odd";
@@ -85,7 +85,7 @@ function fill_table() {
       cell = row.insertCell(x);
       // i = 0 - 11
       // x = 0 - 3
-      // database (position [i], property [x]) 
+      // database (position [i], property [x])
       cell.innerHTML = database[i][alternating(x)];
     }
     // For each last cell of each row, we format its value display

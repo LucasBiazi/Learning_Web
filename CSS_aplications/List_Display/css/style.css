@@ -19,7 +19,7 @@ body {
 
 .main {
   width: 900px;
-  height: 650px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +56,7 @@ Appending the scroll bar, hence limitting the content displayed. */
 /* Styling the button*/
 
 button {
-  font-size: 25px;
+  font-size: 23px;
   width: 150px;
   height: 60px;
   border: 3px solid black;
