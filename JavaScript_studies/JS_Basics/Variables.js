@@ -8,13 +8,13 @@ function variable_global() {
 }
 variable_global();
 
-// Let variables are the ones that may have its values reassigned
+// Let variables are the ones that may have its values reassigned. It only works whithin its scope (declaration block).
 let i = 0;
 for (i; i < 10; i++) console.log("Let is cool");
 console.log("Value of i after the for loop: " + i);
 
-// Const variables are the ones that will not have its values reassigned
-// Const usually is used whithin functions, methods... Its scope is smaller than let's scope.
+// Const variables are the ones that will not have its values reassigned. It only works whithin its scope (declaration block).
+// Const variables will not have their value updated/re-declared.
 const name = "Lucas Biazi Ferreira";
 function my_quote() {
   console.log(
@@ -23,3 +23,4 @@ function my_quote() {
   );
 }
 my_quote();
+// The order you should embrace is: const > let > var
