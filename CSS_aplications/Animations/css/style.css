@@ -4,33 +4,45 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Main header animation. */
 @keyframes welcoming_h1 {
   from {
+    /* Set starter opacity to 0 */
     opacity: 0%;
-    transform: scale(0.6);
+    /* 3d scaling the h1 (x, y, z)*/
+    transform: scale3d(0.75, 0.75, 1);
   }
   to {
+    /* Set final opacity to 100% */
     opacity: 100%;
-    transform: scale(1);
+    /* 3d scaling the h1 (x, y, z)*/
+    transform: scale3d(1, 1, 1);
   }
 }
 
-body {
+.main {
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #d5f4e6;
+  background-color: #869fc7;
 }
+
+/* Attributing the welcoming_h1 animation to h1. */
 
 h1 {
   color: white;
   font-size: 55px;
-  text-align: center;
-  animation: welcoming_h1 2s;
   text-shadow: 3px 3px 2px black;
+  text-align: center;
+  /* By using the cubic-bezier you can provide the traject of the scale. */
+  /* https://cubic-bezier.com */
+  /* The animation will last x seconds. */
+  animation: welcoming_h1 0.9s cubic-bezier(0.4, 0.31, 0.53, 1.32);
+  /* Informing were it should begin / end. */
+  transform-origin: bottom center;
 }
 
 .main_h {
@@ -40,16 +52,20 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .arrow {
-  position: relative;
-  height: 80px;
-  width: 80px;
-  margin-bottom: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: lightgreen;
+  display: inline-block;
+  margin-bottom: 50px;
+  background-image: url(../../../media/down-arrow-black-circular-button.svg);
+  background-size: cover;
 }
-
-.arrow:hover {
-  cursor: pointer;
+.info {
+  height: 100vh;
+  width: 100%;
+  background-color: lightcyan;
 }
