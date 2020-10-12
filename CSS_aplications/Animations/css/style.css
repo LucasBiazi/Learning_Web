@@ -2,5 +2,54 @@
   margin: 0px;
   padding: 0px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 30px;
+}
+
+@keyframes welcoming_h1 {
+  from {
+    opacity: 0%;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d5f4e6;
+}
+
+h1 {
+  color: white;
+  font-size: 55px;
+  text-align: center;
+  animation: welcoming_h1 2s;
+  text-shadow: 3px 3px 2px black;
+}
+
+.main_h {
+  margin-top: 150px;
+  height: 30%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.arrow {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  margin-bottom: 80px;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }
