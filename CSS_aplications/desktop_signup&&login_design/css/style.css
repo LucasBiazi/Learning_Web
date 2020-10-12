@@ -1,9 +1,12 @@
+/* Attributing major values. */
 * {
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
 }
+
+/* Body background gets an image. */
 
 body {
   height: 100vh;
@@ -13,6 +16,8 @@ body {
   background-image: url(../../../media/hall.jpg);
   background-size: cover;
 }
+
+/* Main takes half of the screen. */
 
 .main {
   height: 100vh;
@@ -24,6 +29,8 @@ body {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+/* Div that contains the forms */
+
 .main_son {
   display: flex;
   flex-direction: column;
@@ -33,6 +40,8 @@ body {
   width: 500px;
 }
 
+/* Div used to make the labels + inputs in the same 'line'. */
+
 .login {
   width: 100%;
   display: flex;
@@ -40,11 +49,15 @@ body {
   justify-content: space-around;
 }
 
+/* Aligning label txt in the end. */
+
 label {
   text-align: end;
   font-size: 30px;
   width: 150px;
 }
+
+/* Styling inputs. */
 
 input {
   font-size: 25px;
@@ -58,10 +71,14 @@ input {
   border-bottom: 3px solid white;
 }
 
+/* Styling the placeholder. */
+
 ::placeholder {
   font-size: 25px;
   color: white;
 }
+
+/* Styling the button. */
 
 button {
   width: 100%;
@@ -73,6 +90,9 @@ button {
   background-color: black;
   border: 3px solid white;
 }
+
+/* Styling the hover action over the button. */
+
 button:hover {
   cursor: pointer;
   background-color: rgb(37, 37, 37);
