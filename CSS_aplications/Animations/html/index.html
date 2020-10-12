@@ -6,11 +6,21 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>Animations</title>
   </head>
-  <body>
-    <div class="main">
+  <!-- Adding function to scrol the page to top onload(f5) -->
+  <body onload="scrol_top()">
+    <section class="first_section">
       <div class="main_h"><h1>Animated Website!</h1></div>
       <a class="arrow" href="#info"> </a>
-    </div>
-    <div id="info" class="info"></div>
+    </section>
+    <section id="info" class="second_section">
+      <h1>Second section</h1>
+    </section>
   </body>
 </html>
+
+<script>
+  // Makes the page load to the top when refreshed
+  function scrol_top() {
+    window.scrollTo(0, 0);
+  }
+</script>

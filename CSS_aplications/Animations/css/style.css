@@ -1,10 +1,19 @@
+/* Initializing with the following values for a general state */
 * {
   margin: 0px;
   padding: 0px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Main header animation. */
+html {
+  scroll-behavior: smooth;
+}
+
+section{
+display: block;
+}
+
+/* Main header animation. Changes in ipacity and scale. */
 @keyframes welcoming_h1 {
   from {
     /* Set starter opacity to 0 */
@@ -20,7 +29,9 @@
   }
 }
 
-.main {
+/* Main section, containing the first seen elements. */
+
+.first_section {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -45,6 +56,8 @@ h1 {
   transform-origin: bottom center;
 }
 
+/* Div containing the main h1 */
+
 .main_h {
   margin-top: 150px;
   height: 30%;
@@ -54,18 +67,27 @@ h1 {
   align-items: center;
 }
 
+/* SVG link */
+
 .arrow {
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
   border-radius: 100%;
   background-color: lightgreen;
+  /* Keeping the clickable area within the svg circle */
   display: inline-block;
   margin-bottom: 50px;
   background-image: url(../../../media/down-arrow-black-circular-button.svg);
   background-size: cover;
 }
-.info {
+
+/* Information section */
+
+.second_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: lightcyan;
+  background-color: lightgreen;
 }
