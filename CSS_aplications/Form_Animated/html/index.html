@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../script/scirpt.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
     <title>Animated Form</title>
   </head>
   <body>
+    <!-- Button that triggers the sign-up form. -->
     <button onclick="display_form()"><p>Sign up</p></button>
+    <!-- Pop-up div, main div. -->
     <div id="pop_up" class="main">
+      <!-- 'X', used to close the form. -->
       <div class="close"><p onclick="close_form()" class="x">X</p></div>
+      <!-- Each element of the form has a div, 
+      within this div a label + input. -->
       <form>
         <div class="form_items">
           <label for="name">Name</label>
-          <input id="name" type="text" required />
+          <input onselect="load_hightlight()" id="name" type="text" required />
         </div>
         <div class="form_items">
           <label for="email">Email</label>
@@ -41,36 +47,13 @@
             required
           />
         </div>
-        <div class="form_items">
+        <div class="form_items color_input">
           <label for="color">Color</label>
-          <input id="color" type="color" required style="padding-left: 0" />
+          <input id="color" type="color" required />
         </div>
-        <button style="width: 95%"><p>Send</p></button>
+        <!-- Button used to send the information. -->
+        <button style="width: 95%; font-size: 23px"><p>Send</p></button>
       </form>
     </div>
   </body>
 </html>
-
-<script>
-  function close_form() {
-    const pop_up = document.getElementById("pop_up");
-    pop_up.classList.remove("display_form");
-  }
-  function display_form() {
-    // Shows form.
-    const pop_up = document.getElementById("pop_up");
-    pop_up.classList.add("display_form");
-
-    // setTimeout(function () {
-    //   const pop_up = document.getElementById("pop_up");
-    //   // If the user clicks outside, closes the form.
-    //   window.addEventListener("click", function click(click) {
-    //     if (pop_up.contains(click.target)) {
-    //     } else {
-    //       pop_up.classList.remove("display_form");
-    //     }
-    //   });
-    //   //   Executes after 1 seconds
-    // }, 1000);
-  }
-</script>

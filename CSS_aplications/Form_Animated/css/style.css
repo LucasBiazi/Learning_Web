@@ -1,33 +1,59 @@
+/* Starting with some general values. */
 * {
   margin: 0px;
   padding: 0px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Animation to the buttons. */
 @keyframes bring_button_up {
   from {
+    /* Takes opacity, pushes down + decrease its size. */
     opacity: 0%;
     top: 25px;
     transform: scale3d(0.75, 0.75, 1);
   }
   to {
+    /* Max opacity, original position + normal size. */
     opacity: 100%;
     top: 0px;
     transform: scale3d(1, 1, 1);
   }
 }
 
+/* Pop up form animation. */
 @keyframes pop_up {
   from {
+    /* Takes the opacity, decreases the size + pushes down. */
     opacity: 0%;
     transform: scale3d(0.9, 0.9, 1);
+    bottom: 50px;
   }
   to {
+    /* Max opacity, original size, original position. */
     opacity: 100%;
     transform: scale3d(1, 1, 1);
+    bottom: 0px;
   }
 }
 
+/* Pop up close animation. */
+@keyframes pop_up_close {
+  from {
+    /* Max opacity, original size, original position. */
+    opacity: 100%;
+    transform: scale3d(1, 1, 1);
+    bottom: 0px;
+  }
+  to {
+    /* Takes the opacity, decreases the size + pushes down. */
+    opacity: 0%;
+    transform: scale3d(0.9, 0.9, 1);
+    bottom: 50px;
+  }
+}
+
+/* Sets body elements to the center + body background. */
 body {
   height: 100vh;
   display: flex;
@@ -36,6 +62,7 @@ body {
   background: radial-gradient(#bddcf0, #81bae0);
 }
 
+/* Styling button. */
 button {
   position: relative;
   width: 300px;
@@ -50,27 +77,32 @@ button {
   animation: bring_button_up 0.5s ease-in-out;
 }
 
+/* Styling p. */
 p {
   font-size: 40px;
   color: white;
 }
 
+/* Button effect when hovered. */
 button:hover {
   cursor: pointer;
   background-color: #3979a1;
 }
 
+/* Styling the main div, it contains the form.  */
 .main {
   display: none;
   position: absolute;
   top: calc(50% - 325px);
-  left: calc(50% - 162.5px);
+  left: calc(50% - 175px);
   height: 650px;
-  width: 325px;
+  width: 350px;
   background-color: white;
   border-radius: 15px;
+  box-shadow: 2px 2px 2px black;
 }
 
+/* Class called to show the form. */
 .display_form {
   display: flex;
   flex-direction: column;
@@ -81,14 +113,16 @@ button:hover {
   justify-content: space-between;
 }
 
-.close_form {
-  animation: pop_up 0.5s cubic-bezier(0.5, 0.23, 0.64, 1.31) reverse;
-  transform-origin: center center;
+/* After the animation is done, opacity = 0 */
+.closes_form {
+  animation: pop_up_close 0.5s cubic-bezier(0.5, 0.23, 0.64, 1.31);
+  animation-fill-mode: forwards;
 }
 
+/* Styling the form. */
 form {
   height: 550px;
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -96,33 +130,40 @@ form {
   margin-bottom: 40px;
 }
 
+/* Each form label + input is within this div class. */
 .form_items {
   width: 100%;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-end;
 }
 
+/* Labels properties. */
 label {
-  margin-right: 10px;
+  margin-right: 20px;
   text-align: end;
   width: 40%;
   font-size: 23px;
 }
 
+/* Inputs properties. */
 input {
-  margin-right: 10px;
+  margin-right: 20px;
   border: 2px solid black;
   width: 60%;
   height: 30px;
   font-size: 23px;
-  padding-left: 5px;
+  padding-left: 5px; /* Margin inside the input. */
+  border-radius: 7px;
 }
 
+/* Input's placeholder font-size. */
 input::placeholder {
   font-size: 20px;
 }
 
+/* X's div. */
 .close {
   width: 100%;
   height: 50px;
@@ -131,6 +172,8 @@ input::placeholder {
   align-items: center;
   justify-content: flex-end;
 }
+
+/* 'X' character used to exit the pop-up form. */
 .x {
   display: flex;
   justify-content: center;
@@ -144,11 +187,23 @@ input::placeholder {
   border: 3px solid black;
 }
 
-@media only screen and (min-width: 1000px) {
+/* Changes the cursor when the user hovers over the 'X'. */
+.x:hover {
+  cursor: pointer;
+}
+
+/* Make it resposible for dektops. */
+@media only screen and (min-width: 1079px) {
   .main {
     top: calc(50% - 325px);
     left: calc(50% - 250px);
     height: 650px;
     width: 500px;
+  }
+  form {
+    width: 80%;
+  }
+  label {
+    margin-right: 30px;
   }
 }
