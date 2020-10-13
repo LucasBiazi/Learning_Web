@@ -68,7 +68,7 @@ section {
 /* Attributing the welcoming_h1 animation to h1. */
 h1 {
   color: white;
-  font-size: 55px;
+  font-size: 50px;
   text-shadow: 3px 3px 2px black;
   text-align: center;
   /* By using the cubic-bezier you can provide the traject of the scale. */
@@ -169,7 +169,7 @@ footer {
 }
 
 /* Make it responsible for IpadPro. */
-@media only screen and (min-width: 763px) {
+@media only screen and (min-height: 1200px) {
   h1 {
     font-size: 80px;
   }
@@ -188,7 +188,7 @@ footer {
 }
 
 /* Make it responsible for desktop. */
-@media screen and (min-height: 700px) {
+@media screen and (max-height: 700px) {
   h1 {
     font-size: 80px;
   }
