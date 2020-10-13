@@ -6,12 +6,15 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>Animations</title>
   </head>
-  <!-- Adding function to scrol the page to top onload(f5) -->
+  <!-- Everytime that the page is re-loaded the # is cleaned and the -->
+  <!-- page will be scrolled to the top. -->
   <body onload="scrol_top(), clean_url()">
-    <section id="main" class="first_section">
+    <!-- First section, contains the scroll down button and the header1 -->
+    <section class="first_section">
       <div class="main_h"><h1>Animated Website!</h1></div>
       <a class="arrow" onclick="load_items()" href="#info"> </a>
     </section>
+    <!-- Section two, contains 3 divs, each one with a svg image + description -->
     <section id="info" class="second_section">
       <div class="informations">
         <div id="information1" class="info_items">
@@ -43,9 +46,10 @@
         </div>
       </div>
     </section>
+    <!-- Footer -->
     <footer>
-      <div class="footer_div"><p>Credits</p></div>
-      <div class="footer_div"><p>Contact</p></div>
+      <div class="footer_div"><p>This page was made to train CS3 animations.</p></div>
+      <div class="footer_div"><p>Enjoy!</p></div>
     </footer>
   </body>
 </html>
@@ -55,11 +59,11 @@
   function scrol_top() {
     window.scrollTo(0, 0);
   }
-
+  // Cleans the #
   function clean_url() {
     document.location.hash = "";
   }
-
+  // Adds the class that triggers the animation
   function load_items() {
     const info1 = document.getElementById("information1");
     const info2 = document.getElementById("information2");

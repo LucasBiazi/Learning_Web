@@ -32,6 +32,7 @@ section {
   }
 }
 
+/* Makes the arrow move up */
 @keyframes move_arrow {
   from {
     bottom: 0px;
@@ -41,6 +42,7 @@ section {
   }
 }
 
+/* Side slide the info divs */
 @keyframes slide_info {
   from {
     opacity: 0%;
@@ -53,7 +55,6 @@ section {
 }
 
 /* Main section, containing the first seen elements. */
-
 .first_section {
   height: 100vh;
   width: 100%;
@@ -65,7 +66,6 @@ section {
 }
 
 /* Attributing the welcoming_h1 animation to h1. */
-
 h1 {
   color: white;
   font-size: 55px;
@@ -75,12 +75,12 @@ h1 {
   /* https://cubic-bezier.com */
   /* The animation will last x seconds. */
   animation: welcoming_h1 0.9s cubic-bezier(0.4, 0.31, 0.53, 1.32);
-  /* Informing were it should begin / end. */
+  /* Informing were the transformation should begin / end. */
+  /* AKA: Jumping effect. */
   transform-origin: bottom center;
 }
 
 /* Div containing the main h1 */
-
 .main_h {
   margin-top: 150px;
   height: 30%;
@@ -91,7 +91,6 @@ h1 {
 }
 
 /* SVG link */
-
 .arrow {
   width: 85px;
   height: 85px;
@@ -103,12 +102,13 @@ h1 {
   background-image: url(../../../media/down-arrow-black-circular-button.svg);
   background-size: cover;
   position: relative;
+  /* Appending the animation, infinite loop. 
+  Duration of 2 seconds, easy-in-out. */
   animation: move_arrow 2s alternate ease-in-out;
   animation-iteration-count: infinite;
 }
 
 /* Information section */
-
 .second_section {
   display: flex;
   justify-content: center;
@@ -119,7 +119,6 @@ h1 {
 }
 
 /* Informations DIV */
-
 .informations {
   width: 100%;
   height: 60%;
@@ -129,6 +128,7 @@ h1 {
   align-items: center;
 }
 
+/* Divs that contains the info items. */
 .info_items {
   font-size: 25px;
   width: 100%;
@@ -138,25 +138,74 @@ h1 {
   align-items: center;
 }
 
+/* Class that triggers the animation. */
 .info_items_animation {
   position: relative;
   animation: slide_info 2s ease-in-out;
 }
 
+/* Styling the footer. */
 footer {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
   background-color: black;
 }
 
+/* Styling the footer's div. */
 .footer_div {
   height: 200px;
   width: 260px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: nowrap;
   color: white;
   font-size: 25px;
   border: 3px solid white;
+}
+
+/* Make it responsible for IpadPro. */
+@media only screen and (min-width: 763px) {
+  h1 {
+    font-size: 80px;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  .info_items {
+    font-size: 50px;
+  }
+  .footer_div {
+    width: 900px;
+    height: 600px;
+    font-size: 50px;
+  }
+}
+
+/* Make it responsible for desktop. */
+@media screen and (min-height: 700px) {
+  h1 {
+    font-size: 80px;
+  }
+  .arrow{
+    width: 50px;
+    height: 50px;    
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  .info_items {
+    font-size: 45px;
+  }
+  .footer_div {
+    font-size: 25px;
+    width: 40%;
+    height: 20%;
+  }
 }
