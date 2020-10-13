@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Animated Form</title>
+  </head>
+  <body>
+    <button onclick="display_form()"><p>sign up</p></button>
+    <form>
+      <div id="pop_up" class="main">
+        <div class="close"><p onclick="close_form()" class="x">X</p></div>
+      </div>
+    </form>
+  </body>
+</html>
+
+<script>
+  function close_form() {
+    const pop_up = document.getElementById("pop_up");
+    pop_up.classList.remove("display_form");
+  }
+  function display_form() {
+    // Shows form.
+    const pop_up = document.getElementById("pop_up");
+    pop_up.classList.add("display_form");
+
+    // setTimeout(function () {
+    //   const pop_up = document.getElementById("pop_up");
+    //   // If the user clicks outside, closes the form.
+    //   window.addEventListener("click", function click(click) {
+    //     if (pop_up.contains(click.target)) {
+    //     } else {
+    //       pop_up.classList.remove("display_form");
+    //     }
+    //   });
+    //   //   Executes after 1 seconds
+    // }, 1000);
+  }
+</script>
