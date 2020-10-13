@@ -7,12 +7,47 @@
     <title>Animated Form</title>
   </head>
   <body>
-    <button onclick="display_form()"><p>sign up</p></button>
-    <form>
-      <div id="pop_up" class="main">
-        <div class="close"><p onclick="close_form()" class="x">X</p></div>
-      </div>
-    </form>
+    <button onclick="display_form()"><p>Sign up</p></button>
+    <div id="pop_up" class="main">
+      <div class="close"><p onclick="close_form()" class="x">X</p></div>
+      <form>
+        <div class="form_items">
+          <label for="name">Name</label>
+          <input id="name" type="text" required />
+        </div>
+        <div class="form_items">
+          <label for="email">Email</label>
+          <input id="email" type="email" required />
+        </div>
+        <div class="form_items">
+          <label for="email_c">Email</label>
+          <input
+            placeholder="Confirmation..."
+            id="email_c"
+            type="email"
+            required
+          />
+        </div>
+        <div class="form_items">
+          <label for="password">Password</label>
+          <input id="password" type="password" required />
+        </div>
+        <div class="form_items">
+          <label for="password_c">Password</label>
+          <input
+            placeholder="Confirmation..."
+            id="password_c"
+            type="password"
+            required
+          />
+        </div>
+        <div class="form_items">
+          <label for="color">Color</label>
+          <input id="color" type="color" required />
+        </div>
+        <button><p>Send</p></button>
+      </form>
+    </div>
   </body>
 </html>
 
