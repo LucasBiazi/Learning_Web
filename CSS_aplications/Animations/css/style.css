@@ -5,12 +5,15 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Makes the scroll smooth */
 html {
   scroll-behavior: smooth;
 }
 
-section{
-display: block;
+/* Sections are displayes as blocks now (has width and height properties now). */
+
+section {
+  display: block;
 }
 
 /* Main header animation. Changes in ipacity and scale. */
@@ -26,6 +29,26 @@ display: block;
     opacity: 100%;
     /* 3d scaling the h1 (x, y, z)*/
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes move_arrow {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 50px;
+  }
+}
+
+@keyframes slide_info {
+  from {
+    opacity: 0%;
+    right: 110px;
+  }
+  to {
+    opacity: 100%;
+    right: 0px;
   }
 }
 
@@ -79,6 +102,9 @@ h1 {
   margin-bottom: 50px;
   background-image: url(../../../media/down-arrow-black-circular-button.svg);
   background-size: cover;
+  position: relative;
+  animation: move_arrow 2s alternate ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 /* Information section */
@@ -90,4 +116,47 @@ h1 {
   height: 100vh;
   width: 100%;
   background-color: lightgreen;
+}
+
+/* Informations DIV */
+
+.informations {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info_items {
+  font-size: 25px;
+  width: 100%;
+  height: calc(100% / 3);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.info_items_animation {
+  position: relative;
+  animation: slide_info 2s ease-in-out;
+}
+
+footer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+}
+
+.footer_div {
+  height: 200px;
+  width: 260px;
+  color: white;
+  font-size: 25px;
+  border: 3px solid white;
 }

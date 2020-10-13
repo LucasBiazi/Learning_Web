@@ -7,14 +7,46 @@
     <title>Animations</title>
   </head>
   <!-- Adding function to scrol the page to top onload(f5) -->
-  <body onload="scrol_top()">
-    <section class="first_section">
+  <body onload="scrol_top(), clean_url()">
+    <section id="main" class="first_section">
       <div class="main_h"><h1>Animated Website!</h1></div>
-      <a class="arrow" href="#info"> </a>
+      <a class="arrow" onclick="load_items()" href="#info"> </a>
     </section>
     <section id="info" class="second_section">
-      <h1>Second section</h1>
+      <div class="informations">
+        <div id="information1" class="info_items">
+          <img
+            src="../../../media/list.png"
+            width="50"
+            height="50"
+            alt="list_icon"
+          />
+          <p>Info 1</p>
+        </div>
+        <div id="information2" class="info_items">
+          <img
+            src="../../../media/list.png"
+            width="50"
+            height="50"
+            alt="list_icon"
+          />
+          <p>Info 2</p>
+        </div>
+        <div id="information3" class="info_items">
+          <img
+            src="../../../media/list.png"
+            width="50"
+            height="50"
+            alt="list_icon"
+          />
+          <p>Info 3</p>
+        </div>
+      </div>
     </section>
+    <footer>
+      <div class="footer_div"><p>Credits</p></div>
+      <div class="footer_div"><p>Contact</p></div>
+    </footer>
   </body>
 </html>
 
@@ -22,5 +54,18 @@
   // Makes the page load to the top when refreshed
   function scrol_top() {
     window.scrollTo(0, 0);
+  }
+
+  function clean_url() {
+    document.location.hash = "";
+  }
+
+  function load_items() {
+    const info1 = document.getElementById("information1");
+    const info2 = document.getElementById("information2");
+    const info3 = document.getElementById("information3");
+    info1.classList.add("info_items_animation");
+    info2.classList.add("info_items_animation");
+    info3.classList.add("info_items_animation");
   }
 </script>
