@@ -1,0 +1,20 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../media/grass.jpg);    
+    background-size: cover;
+}
+
+.main{
+    width: 90%;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.37);
+    border-radius: 15px;
+}
