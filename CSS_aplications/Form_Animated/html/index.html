@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- Button that triggers the sign-up form. -->
-    <button onclick="display_form()"><p>Sign up</p></button>
+    <button onclick="display_form()"><p>Load Form</p></button>
     <!-- Pop-up div, main div. -->
     <div id="pop_up" class="main">
       <!-- 'X', used to close the form. -->
@@ -35,11 +35,11 @@
           />
         </div>
         <div class="form_items">
-          <label for="password">Password</label>
+          <label style="font-size: 21.5px" for="password">Password</label>
           <input id="password" type="password" required />
         </div>
         <div class="form_items">
-          <label for="password_c">Password</label>
+          <label style="font-size: 21.5px" for="password_c">Password</label>
           <input
             placeholder="Confirmation..."
             id="password_c"
@@ -47,13 +47,49 @@
             required
           />
         </div>
+        <div class="form_items">
+          <label for="number">Number</label>
+          <select name="number" id="number" required>
+            <option value="0">0</option>
+            <option value="0">1</option>
+            <option value="0">2</option>
+            <option value="0">3</option>
+            <option value="0">4</option>
+            <option value="0">5</option>
+          </select>
+        </div>
+        <div class="form_items">
+          <label for="code">Code</label>
+          <input id="code" type="number" required />
+        </div>
         <div class="form_items color_input">
-          <label for="color">Color</label>
-          <input id="color" type="color" required />
+          <label for="color1">Color 1</label>
+          <input id="color1" type="color" required />
+        </div>
+        <div class="form_items color_input">
+          <label for="color2">Color 2</label>
+          <input id="color2" type="color" required />
+        </div>
+        <div class="form_items color_input">
+          <label for="color3">Color 3</label>
+          <input id="color3" type="color" required />
+        </div>
+        <div
+          class="form_items"
+          style="flex-direction: column; align-items: center"
+        >
+          <p class="contract" style="font-weight: bold;">Contract:</p>
+          <p class="contract">
+            *By signing up you agree with our terms and services. If you are not
+            familiar with them, you can find it
+            <a href="../../Form_Animated/html/index.html">here</a>.
+          </p>
         </div>
         <!-- Button used to send the information. -->
-        <button style="width: 95%; font-size: 23px"><p>Send</p></button>
       </form>
+      <button class="signup_button">
+        <p>Sign up</p>
+      </button>
     </div>
   </body>
 </html>

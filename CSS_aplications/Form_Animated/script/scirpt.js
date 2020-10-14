@@ -10,7 +10,7 @@ function click(click) {
   }
 }
 
-// Ads an event listener to check where the user clicked,
+// Ads an eventListener to check where the user clicked,
 // future implementation.
 function click_verification() {
   setTimeout(function () {
@@ -35,5 +35,5 @@ function close_form() {
   setTimeout(function () {
     pop_up.classList.remove("closes_form");
     pop_up.classList.remove("display_form");
-  }, 500); // 500 miliseconds = .5 seconds.
+  }, 300); // 300 miliseconds = .3 seconds.
 }
