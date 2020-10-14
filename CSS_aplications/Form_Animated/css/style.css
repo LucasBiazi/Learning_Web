@@ -119,7 +119,7 @@ button:hover {
 }
 
 /* Styling the form. */
-form {  
+form {
   height: 550px;
   width: 100%;
   display: flex;
@@ -210,7 +210,7 @@ input::placeholder {
   margin-bottom: 10px;
   font-size: 19px;
   font-style: italic;
-  color: black;  
+  color: black;
 }
 
 /* Tweaks in the sign up button. */
