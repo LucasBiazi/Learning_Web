@@ -9,9 +9,9 @@ function total_month_days(year, month) {
 }
 
 // Populates the DB.
-function load_DB() {
+function load_DB(year, month) {
   const table = document.getElementById("days");
-  const date_object = new Date();
+  const date_object = new Date(year, month);
   // Array containing months names, starting_day()_+ total_month_days().
   const months = [
     {
@@ -88,6 +88,9 @@ function load_DB() {
     },
   ];
 
+  // Prints the name of the current year.
+  document.getElementById("year_title").textContent = date_object.getFullYear();
+
   // Prints the name of the current month.
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
@@ -106,6 +109,16 @@ function load_DB() {
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
       cell.textContent = normal_days;
+      // Changing today's background
+      if (
+        new Date().getFullYear() ==
+          parseInt(document.getElementById("year_title").textContent) &&
+        months[new Date().getMonth()].month ==
+          document.getElementById("month_title").textContent &&
+        cell.textContent == new Date().getDate()
+      ) {
+        cell.className = "today";
+      }
       normal_days++;
       // If we already populated all the days in the month.
       if (normal_days > months[date_object.getMonth()].days.length + 1) {
@@ -124,11 +137,64 @@ function load_DB() {
     for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
       cell = row.insertCell(0);
       cell.textContent = number_of_cells_in_the_first_row - y;
+      // Changing today's background
+      if (
+        new Date().getFullYear() ==
+          parseInt(document.getElementById("year_title").textContent) &&
+        months[new Date().getMonth()].month ==
+          document.getElementById("month_title").textContent &&
+        cell.textContent == new Date().getDate()
+      ) {
+        cell.className = "today";
+      }
     }
     // Clearing the others.
     for (let w = 0; w < number_of_blank_cells; w++) {
       cell = row.insertCell(0);
       cell.className = "cancel_background";
     }
+  }
+}
+
+// Converts the month name to getMonth()
+function identify_month(string) {
+  const all_months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let i = 0;
+  while (string != all_months[i]) {
+    i++;
+  }
+  return i;
+}
+
+// Advances a month
+function advance_month(year, month) {
+  // Cleaning the days.
+  const table = document.getElementById("days");
+  for (let i = 0; i < 6; i++) {
+    table.deleteRow(1);
+  }
+
+  month++;
+  load_DB(year, month);
+}
+
+function retreat_month(year, month) {
+  // Cleaning the days.
+  const table = document.getElementById("days");
+  for (let i = 0; i < 6; i++) {
+    table.deleteRow(1);
   }
 }
