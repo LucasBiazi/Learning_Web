@@ -87,6 +87,7 @@ function load_DB() {
       days: Array(total_month_days(date_object.getFullYear(), 11)),
     },
   ];
+
   // Prints the name of the current month.
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
@@ -95,6 +96,7 @@ function load_DB() {
   const number_of_cells_in_the_first_row =
     7 - months[date_object.getMonth()].first_day;
 
+  // Number of days to be displayed after the first row.
   let normal_days = number_of_cells_in_the_first_row + 1;
 
   // Populate rows.
@@ -105,7 +107,8 @@ function load_DB() {
       cell = row.insertCell(x);
       cell.textContent = normal_days;
       normal_days++;
-      if (normal_days > months[date_object.getMonth()].days.length) {
+      // If we already populated all the days in the month.
+      if (normal_days > months[date_object.getMonth()].days.length + 1) {
         cell.textContent = "";
         cell.className = "cancel_background";
       }
