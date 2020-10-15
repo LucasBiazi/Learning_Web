@@ -91,27 +91,31 @@ function load_DB() {
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
 
-  // Runs the amount of days in the month.
-  for (let i = 0; i < months[date_object.getMonth()].days.length; i++) {
+  // Populate rows.
+  for (let r = 0; r < 5; r++) {
+    let row = table.insertRow(r + 1);
+    let cell;
+    for (let x = 0; x < 7; x++) {
+      cell = row.insertCell(x);
+    }
+  }
+
+  // First row adjustment.
+  for (let i = 0; i < 1; i++) {
     let row = table.insertRow(i + 1);
     let cell;
     // For the second row (first day row):
-    if (document.getElementsByTagName("tr").length == 2) {
-      let number_of_cells_in_the_first_row =
-        7 - months[date_object.getMonth()].first_day;
-      let number_of_blank_cells = 7 - number_of_cells_in_the_first_row;
-      // Creates the firs cells.
-      for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
-        cell = row.insertCell(0);
-      }
-      // Clearing the others.
-      for (let w = 0; w < number_of_blank_cells; w++) {
-        cell = row.insertCell(0);
-        cell.className = "cancel_background";
-      }
+    let number_of_cells_in_the_first_row =
+      7 - months[date_object.getMonth()].first_day;
+    let number_of_blank_cells = 7 - number_of_cells_in_the_first_row;
+    // Creates the firs cells.
+    for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
+      cell = row.insertCell(0);
     }
-    // for (let x = 0; x < 7; x++) {
-    //   cell = row.insertCell(x);
-    // }
+    // Clearing the others.
+    for (let w = 0; w < number_of_blank_cells; w++) {
+      cell = row.insertCell(0);
+      cell.className = "cancel_background";
+    }
   }
 }
