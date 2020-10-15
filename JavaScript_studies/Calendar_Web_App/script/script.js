@@ -97,6 +97,7 @@ function load_DB() {
     let cell;
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
+      cell.textContent = "+";
     }
   }
 
@@ -111,6 +112,7 @@ function load_DB() {
     // Creates the firs cells.
     for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
       cell = row.insertCell(0);
+      cell.textContent = number_of_cells_in_the_first_row - y;
     }
     // Clearing the others.
     for (let w = 0; w < number_of_blank_cells; w++) {

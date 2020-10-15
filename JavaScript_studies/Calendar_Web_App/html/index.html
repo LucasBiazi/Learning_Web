@@ -7,7 +7,7 @@
     <script src="../script/script.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body>
+  <body onload="load_DB()">
     <div class="main">
       <div class="title">
         <h1 id="month_title"></h1>
@@ -16,19 +16,19 @@
         <div class="month_days">
           <table id="days">
             <tr>
-              <th id="1">Sun</th>
-              <th id="2">Mon</th>
-              <th id="3">Tue</th>
-              <th id="4">Wed</th>
-              <th id="5">Thu</th>
-              <th id="6">Fri</th>
-              <th id="7">Sat</th>
+              <th>Sun</th>
+              <th class="even">Mon</th>
+              <th>Tue</th>
+              <th class="even">Wed</th>
+              <th>Thu</th>
+              <th class="even">Fri</th>
+              <th>Sat</th>
             </tr>
           </table>
         </div>
       </div>
       <div class="buttons">
-        <button onclick="load_DB()">Load</button>
+        <button>1</button>
         <button>2</button>
         <button>3</button>
         <button>4</button>

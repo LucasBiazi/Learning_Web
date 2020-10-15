@@ -17,7 +17,7 @@ body {
 }
 
 .main {
-  width: 90%;
+  width: 95%;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -39,36 +39,46 @@ body {
 .calendar {
   height: 75%;
   width: 100%;
-  background-color: rgba(144, 238, 144, 0.425);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .month_days {
-  width: 90%;
+  width: 95%;
   height: 90%;
-  background-color: rgba(250, 250, 210, 0.445);
   border-radius: 10px;
 }
 
 table {
   width: 100%;
   color: black;
-  background-color: lightpink;
+  font-size: 20px;
 }
 
-tr {
-  background-color: red;
-  border: 2px solid black;
+tr,
+th,
+td {
+  background-color: none;
+}
+
+th,
+td {
+  width: calc(100% / 7);
+  height: 46px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+th {
+  color: white;
 }
 
 td {
-  height: 10px;
-  background-color: green;
+  background-color: white;
 }
 
-.cancel_background{
+.cancel_background {
   background: none;
 }
 
