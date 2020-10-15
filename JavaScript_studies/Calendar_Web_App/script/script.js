@@ -91,13 +91,24 @@ function load_DB() {
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
 
+  // For the second row (first day row):
+  const number_of_cells_in_the_first_row =
+    7 - months[date_object.getMonth()].first_day;
+
+  let normal_days = number_of_cells_in_the_first_row + 1;
+
   // Populate rows.
   for (let r = 0; r < 5; r++) {
     let row = table.insertRow(r + 1);
     let cell;
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
-      cell.textContent = "+";
+      cell.textContent = normal_days;
+      normal_days++;
+      if (normal_days > months[date_object.getMonth()].days.length) {
+        cell.textContent = "";
+        cell.className = "cancel_background";
+      }
     }
   }
 
@@ -105,9 +116,6 @@ function load_DB() {
   for (let i = 0; i < 1; i++) {
     let row = table.insertRow(i + 1);
     let cell;
-    // For the second row (first day row):
-    let number_of_cells_in_the_first_row =
-      7 - months[date_object.getMonth()].first_day;
     let number_of_blank_cells = 7 - number_of_cells_in_the_first_row;
     // Creates the firs cells.
     for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
