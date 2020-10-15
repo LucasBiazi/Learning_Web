@@ -1,20 +1,86 @@
 * {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
 }
 
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../../../media/grass.jpg);    
-    background-size: cover;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../../media/grass.jpg);
+  /* Blurring the background. Applies behind the element... */
+  backdrop-filter: blur(5px);
+  background-size: cover;
 }
 
-.main{
-    width: 90%;
-    height: 90vh;
-    background-color: rgba(0, 0, 0, 0.37);
-    border-radius: 15px;
+.main {
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+}
+
+.title {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar {
+  height: 75%;
+  width: 100%;
+  background-color: rgba(144, 238, 144, 0.425);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.month_days {
+  width: 90%;
+  height: 90%;
+  background-color: rgba(250, 250, 210, 0.445);
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  color: black;
+  background-color: lightpink;
+}
+
+tr {
+  background-color: red;
+  border: 2px solid black;
+}
+
+td {
+  height: 10px;
+  background-color: green;
+}
+
+.cancel_background{
+  background: none;
+}
+
+button {
+  width: 20%;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
