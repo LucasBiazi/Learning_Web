@@ -15,7 +15,7 @@
         <span class="month_title" id="month_title"></span>
       </div>
       <div class="calendar">
-        <div class="month_days">
+        <div id="month_days" class="month_days">
           <table id="days">
             <tr>
               <th style="color: lightsalmon">Sun</th>
@@ -31,13 +31,17 @@
         <!-- Future implementations. -->
         <div class="data">
           <div class="data_content">
-            <p style="color: black; font-size: 20px;">No content.</p>
+            <p style="color: black; font-size: 20px">No content.</p>
           </div>
         </div>
       </div>
       <div class="buttons">
         <!-- Reteats a month. -->
         <button
+          style="
+            animation: display_button_back 1s ease;
+            position: relative;
+          "
           onclick="retreat_month(parseInt(document.getElementById('year_title').textContent), 
         identify_month(document.getElementById('month_title').textContent))"
         >
@@ -49,12 +53,17 @@
         </button>
         <!-- Shows current month. -->
         <button
+          style="animation: display_opacity_zoom 1s ease-out;"
           onclick="advance_month(new Date().getFullYear(), new Date().getMonth() - 1)"
         >
           T
         </button>
         <!-- Advances a month. -->
         <button
+          style="
+            animation: display_button_next 1s ease;
+            position: relative;
+          "
           onclick="advance_month(parseInt(document.getElementById('year_title').textContent), 
           identify_month(document.getElementById('month_title').textContent))"
         >
