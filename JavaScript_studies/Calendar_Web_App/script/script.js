@@ -179,7 +179,6 @@ function identify_month(string) {
   return i;
 }
 
-// Advances a month
 function advance_month(year, month) {
   // Cleaning the days.
   const table = document.getElementById("days");
@@ -197,4 +196,6 @@ function retreat_month(year, month) {
   for (let i = 0; i < 6; i++) {
     table.deleteRow(1);
   }
+  month--;
+  load_DB(year, month);
 }

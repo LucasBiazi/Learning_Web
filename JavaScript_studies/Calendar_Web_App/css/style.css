@@ -37,14 +37,16 @@ body {
   justify-content: space-between;
 }
 
-.year_title {  
+.year_title {
+  width: 100%;
   font-size: 40px;
   letter-spacing: 5px;
-  color: lightsalmon;  
+  color: lightsalmon;
   text-align: center;
 }
 
-.month_title {  
+.month_title {
+  width: 100%;
   font-size: 25px;
   letter-spacing: 15px;
   text-align: center;
@@ -111,10 +113,14 @@ td:hover {
 }
 
 button {
+  padding: 5px;
   width: 20%;
   height: 50px;
+  border: 2px solid white;
   font-size: 25px;
+  color: white;
   border-radius: 10px;
+  background: none;
 }
 
 @media only screen and (min-width: 1080px) {
