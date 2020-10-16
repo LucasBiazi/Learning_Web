@@ -27,21 +27,35 @@
             </tr>
           </table>
         </div>
+        <div class="data">
+          <div class="data_content"></div>
+        </div>
       </div>
       <div class="buttons">
         <button
           onclick="retreat_month(parseInt(document.getElementById('year_title').textContent), 
         identify_month(document.getElementById('month_title').textContent))"
         >
-          ret
+          <img
+            src="../../../media/left-arrow-line-symbol.svg"
+            style="width: 35px; height: 35px"
+            alt="back"
+          />
         </button>
-        <button>2</button>
-        <button>3</button>
+        <button
+          onclick="advance_month(new Date().getFullYear(), new Date().getMonth() - 1)"
+        >
+          T
+        </button>
         <button
           onclick="advance_month(parseInt(document.getElementById('year_title').textContent), 
           identify_month(document.getElementById('month_title').textContent))"
         >
-          adv
+          <img
+            src="../../../media/right-arrow-angle.svg"
+            style="width: 35px; height: 35px"
+            alt="next"
+          />
         </button>
       </div>
     </div>
