@@ -17,7 +17,7 @@ body {
 }
 
 .main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -86,8 +86,8 @@ th {
 }
 
 td {
-  width: calc(100% / 7);
-  height: 51px;
+  width: 2.38em;
+  height: 2.38em;
   color: white;
   text-align: center;
   border-radius: 50%;
@@ -98,11 +98,11 @@ td:hover {
 }
 
 .data {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 95%;
-  height: 38%;
+  height: 30%;
   background-color: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 5px;
@@ -119,7 +119,7 @@ td:hover {
 }
 
 .buttons {
-  width: 100%;
+  width: 100vw;
   height: 70px;
   display: flex;
   justify-content: space-around;
@@ -140,8 +140,7 @@ button {
 }
 
 @media only screen and (min-width: 1080px) {
-  td {
-    width: 50px;
-    height: 133px;
+  td{
+    border-radius: 0%;
   }
 }

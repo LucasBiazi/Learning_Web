@@ -121,11 +121,13 @@ function load_DB(year, month) {
     let cell;
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
+      if (x == 6 || x == 0) cell.style.color = "lightsalmon";
       cell.textContent = normal_days;
       is_today(months, cell);
       normal_days++;
       // Filling the rest of the table (next month days).
       if (normal_days > months[date_object.getMonth()].days.length + 1) {
+        if (x == 6 || x == 0) cell.style.color = "rgba(175, 175, 175, 0.45)";
         cell.textContent = counter++;
         cell.className = "other_month";
       }
@@ -138,10 +140,13 @@ function load_DB(year, month) {
     let cell;
     let number_of_blank_cells = 7 - number_of_cells_in_the_first_row;
     // Creates the firs cells.
-    for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
+    let y = 0;
+    for (y; y < number_of_cells_in_the_first_row; y++) {
       cell = row.insertCell(0);
+      if (y == 0) cell.style.color = "lightsalmon";
       cell.textContent = number_of_cells_in_the_first_row - y;
       is_today(months, cell);
+      if (y == 6) cell.style.color = "lightsalmon";
     }
     // Filling the rest of the table (next month days).
     for (let w = 0; w < number_of_blank_cells; w++) {
