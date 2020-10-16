@@ -196,8 +196,3 @@ button {
   font-weight: 400;
   color: white;
 }
-@media only screen and (min-width: 1080px) {
-  td {
-    border-radius: 0%;
-  }
-}

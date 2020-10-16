@@ -1,14 +1,10 @@
 // Returns the day of the week in which the month starts.
-function starting_day(year, month) {
-  return new Date(year, month, 1).getDay();
-}
+starting_day = (year, month) => new Date(year, month, 1).getDay();
 
 // Returns the amount of days in a month.
-function total_month_days(year, month) {
-  return new Date(year, month + 1, 0).getDate();
-}
+total_month_days = (year, month) => new Date(year, month + 1, 0).getDate();
 
-// Set the background color of the cell that contains today.
+// Set the background color of the cell that contains today's day.
 function is_today(months, cell) {
   if (
     new Date().getFullYear() ==
@@ -20,6 +16,11 @@ function is_today(months, cell) {
     cell.style.background = "rgba(255, 160, 122, 0.8)";
   }
 }
+
+// Changes color if it is a weekend.
+color_weekend = (let_value, cell) => {
+  if (let_value == 6 || let_value == 0) cell.style.color = "lightsalmon";
+};
 
 // Populates the DB.
 function load_DB(year, month) {
@@ -108,25 +109,27 @@ function load_DB(year, month) {
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
 
-  // For the second row (first day row):
+  // Month days that will appear in the first row.
   const number_of_cells_in_the_first_row =
     7 - months[date_object.getMonth()].first_day;
 
-  // Days to be dispĺayed after the first row.
+  // Month days that will appear after the first row.
   let normal_days = number_of_cells_in_the_first_row + 1;
 
-  // Populate rows.
+  // Creates + populates the 5 last rows.
   for (let r = 0; r < 5; r++) {
     let row = table.insertRow(r + 1);
     let cell;
+    // Creates + populates 7 cells in each row.
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
-      if (x == 6 || x == 0) cell.style.color = "lightsalmon";
       cell.textContent = normal_days;
       is_today(months, cell);
+      color_weekend(x, cell);
       normal_days++;
-      // Filling the rest of the table (next month days).
+      // Filling the rest of the table with the days of the next month(gray days).
       if (normal_days > months[date_object.getMonth()].days.length + 1) {
+        // Next month days are always lowlighted.
         if (x == 6 || x == 0) cell.style.color = "rgba(175, 175, 175, 0.45)";
         cell.textContent = counter++;
         cell.className = "other_month";
@@ -134,19 +137,17 @@ function load_DB(year, month) {
     }
   }
 
-  // First row adjustment.
+  // Creates + populates the 1 row.
   for (let i = 0; i < 1; i++) {
     let row = table.insertRow(i + 1);
     let cell;
     let number_of_blank_cells = 7 - number_of_cells_in_the_first_row;
-    // Creates the firs cells.
-    let y = 0;
-    for (y; y < number_of_cells_in_the_first_row; y++) {
+    // Populates it.
+    for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
       cell = row.insertCell(0);
-      if (y == 0) cell.style.color = "lightsalmon";
       cell.textContent = number_of_cells_in_the_first_row - y;
       is_today(months, cell);
-      if (y == 6) cell.style.color = "lightsalmon";
+      color_weekend(y, cell);
     }
     // Filling the rest of the table (next month days).
     for (let w = 0; w < number_of_blank_cells; w++) {
@@ -187,23 +188,23 @@ function identify_month(string) {
 
 // Advancecs a month.
 function advance_month(year, month) {
-  // Cleaning the days.
+  // Cleaning table.
   const table = document.getElementById("days");
   for (let i = 0; i < 6; i++) {
     table.deleteRow(1);
   }
-
+  // Add new data.
   month++;
   load_DB(year, month);
 }
 
 // Retreats a month.
 function retreat_month(year, month) {
-  // Cleaning the days.
+  // Cleaning table.
   const table = document.getElementById("days");
   for (let i = 0; i < 6; i++) {
     table.deleteRow(1);
   }
-  month--;
+  month--; // Add new data.
   load_DB(year, month);
 }
