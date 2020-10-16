@@ -7,6 +7,7 @@
     <script src="../script/script.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
+  <!-- As soon as the page loads, fulfills the table. -->
   <body onload="load_DB(new Date().getFullYear(), new Date().getMonth())">
     <div class="main">
       <div class="title">
@@ -27,11 +28,13 @@
             </tr>
           </table>
         </div>
+        <!-- Future implementations. -->
         <div class="data">
           <div class="data_content"></div>
         </div>
       </div>
       <div class="buttons">
+        <!-- Reteats a month. -->
         <button
           onclick="retreat_month(parseInt(document.getElementById('year_title').textContent), 
         identify_month(document.getElementById('month_title').textContent))"
@@ -42,11 +45,13 @@
             alt="back"
           />
         </button>
+        <!-- Shows current month. -->
         <button
           onclick="advance_month(new Date().getFullYear(), new Date().getMonth() - 1)"
         >
           T
         </button>
+        <!-- Advances a month. -->
         <button
           onclick="advance_month(parseInt(document.getElementById('year_title').textContent), 
           identify_month(document.getElementById('month_title').textContent))"

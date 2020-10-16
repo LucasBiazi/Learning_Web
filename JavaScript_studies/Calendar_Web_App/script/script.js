@@ -8,10 +8,25 @@ function total_month_days(year, month) {
   return new Date(year, month + 1, 0).getDate();
 }
 
+// Set the background color of the cell that contains today.
+function is_today(months, cell) {
+  if (
+    new Date().getFullYear() ==
+      parseInt(document.getElementById("year_title").textContent) &&
+    months[new Date().getMonth()].month ==
+      document.getElementById("month_title").textContent &&
+    cell.textContent == new Date().getDate()
+  ) {
+    cell.style.background = "rgba(255, 160, 122, 0.8)";
+  }
+}
+
 // Populates the DB.
 function load_DB(year, month) {
+  let counter = 1;
   const table = document.getElementById("days");
   const date_object = new Date(year, month);
+
   // Array containing months names, starting_day()_+ total_month_days().
   const months = [
     {
@@ -88,10 +103,8 @@ function load_DB(year, month) {
     },
   ];
 
-  // Prints the name of the current year.
+  // Prints the name of the current month and year.
   document.getElementById("year_title").textContent = date_object.getFullYear();
-
-  // Prints the name of the current month.
   document.getElementById("month_title").textContent =
     months[date_object.getMonth()].month;
 
@@ -99,7 +112,7 @@ function load_DB(year, month) {
   const number_of_cells_in_the_first_row =
     7 - months[date_object.getMonth()].first_day;
 
-  // Number of days to be displayed after the first row.
+  // Days to be dispĺayed after the first row.
   let normal_days = number_of_cells_in_the_first_row + 1;
 
   // Populate rows.
@@ -109,21 +122,12 @@ function load_DB(year, month) {
     for (let x = 0; x < 7; x++) {
       cell = row.insertCell(x);
       cell.textContent = normal_days;
-      // Changing today's background
-      if (
-        new Date().getFullYear() ==
-          parseInt(document.getElementById("year_title").textContent) &&
-        months[new Date().getMonth()].month ==
-          document.getElementById("month_title").textContent &&
-        cell.textContent == new Date().getDate()
-      ) {
-        cell.className = "today";
-      }
+      is_today(months, cell);
       normal_days++;
-      // If we already populated all the days in the month.
+      // Filling the rest of the table (next month days).
       if (normal_days > months[date_object.getMonth()].days.length + 1) {
-        cell.textContent = "";
-        cell.className = "cancel_background";
+        cell.textContent = counter++;
+        cell.className = "other_month";
       }
     }
   }
@@ -137,26 +141,23 @@ function load_DB(year, month) {
     for (let y = 0; y < number_of_cells_in_the_first_row; y++) {
       cell = row.insertCell(0);
       cell.textContent = number_of_cells_in_the_first_row - y;
-      // Changing today's background
-      if (
-        new Date().getFullYear() ==
-          parseInt(document.getElementById("year_title").textContent) &&
-        months[new Date().getMonth()].month ==
-          document.getElementById("month_title").textContent &&
-        cell.textContent == new Date().getDate()
-      ) {
-        cell.className = "today";
-      }
+      is_today(months, cell);
     }
-    // Clearing the others.
+    // Filling the rest of the table (next month days).
     for (let w = 0; w < number_of_blank_cells; w++) {
       cell = row.insertCell(0);
-      cell.className = "cancel_background";
+      if (months[date_object.getMonth() - 1]) {
+        cell.textContent = months[date_object.getMonth() - 1].days.length--;
+        cell.className = "other_month";
+      } else {
+        cell.textContent = months[date_object.getMonth() + 11].days.length--;
+        cell.className = "other_month";
+      }
     }
   }
 }
 
-// Converts the month name to getMonth()
+// Converts the month name to the month number (January = 0).
 function identify_month(string) {
   const all_months = [
     "January",
@@ -179,6 +180,7 @@ function identify_month(string) {
   return i;
 }
 
+// Advancecs a month.
 function advance_month(year, month) {
   // Cleaning the days.
   const table = document.getElementById("days");
@@ -190,6 +192,7 @@ function advance_month(year, month) {
   load_DB(year, month);
 }
 
+// Retreats a month.
 function retreat_month(year, month) {
   // Cleaning the days.
   const table = document.getElementById("days");

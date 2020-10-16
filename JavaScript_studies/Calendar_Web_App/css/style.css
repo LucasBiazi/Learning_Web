@@ -68,6 +68,7 @@ body {
 }
 
 table {
+  margin-top: 20px;
   width: 100%;
   font-size: 22px;
 }
@@ -79,7 +80,7 @@ td {
 }
 
 th {
-  width: calc(100% / 7);
+  width: 14%;
   text-align: center;
   color: white;
 }
@@ -93,31 +94,28 @@ td {
 }
 
 td:hover {
-  background-color: rgba(255, 155, 67, 0.657);
-}
-
-.today {
-  background-color: lightsalmon;
+  background-color: rgba(255, 160, 122, 0.8);
 }
 
 .data {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 95%;
   height: 38%;
-  background-color: rgba(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 5px;
 }
 
-.data_content{
+.data_content {
   width: 95%;
   height: 95%;
 }
 
-.cancel_background {
+.other_month {
   background: none;
+  color: rgba(175, 175, 175, 0.45);
 }
 
 .buttons {
