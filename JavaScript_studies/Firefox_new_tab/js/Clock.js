@@ -1,19 +1,13 @@
 // Clock function
-Start_clock = () => {
-    const h = 12
-    const m = 22
-    const s = 33
-    document.getElementById("hour").innerText = h + ":"
-    document.getElementById("minute").innerText = m + ":"
-    document.getElementById("second").innerText = s
+clock = () => {
+    document.getElementById("timer").innerText = new Date().toLocaleTimeString()
 }
 
-// Main function
+// Main Function
 Trigger = () => {
     document.addEventListener("DOMContentLoaded", () => {
-        console.log("Document loaded.")
-        Start_clock();
+        clock();
+        setInterval(clock, 1000);
     })
 }
-
 Trigger()
