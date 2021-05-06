@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
     <title>Grocery Store</title>
 </head>
 
@@ -14,47 +15,68 @@
     <div class="container">
         <table>
             <tr>
-                <th>Check</th>
                 <th>Item</th>
                 <th>Price</th>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Apple</td>
+                <td>
+                    <input type="checkbox" id="Item1">
+                    <label for="Item1">Apple</label>
+                </td>
                 <td>R$ 5.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Orange</td>
+                <td>
+                    <input type="checkbox" id="Item2">
+                    <label for="Item2">Pineapple</label>
+                </td>
                 <td>R$ 6.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Egg</td>
+                <td>
+                    <input type="checkbox" id="Item3">
+                    <label for="Item3">Banana</label>
+                </td>
                 <td>R$ 2.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Bread</td>
+                <td>
+                    <input type="checkbox" id="Item4">
+                    <label for="Item4">Bread</label>
+                </td>
                 <td>R$ 4.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Honey</td>
+                <td>
+                    <input type="checkbox" id="Item5">
+                    <label for="Item5">Egg</label>
+                </td>
                 <td>R$ 7.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Butter</td>
+                <td>
+                    <input type="checkbox" id="Item6">
+                    <label for="Item6">Fluor</label>
+                </td>
                 <td>R$ 5.00</td>
             </tr>
             <tr>
-                <td><input type="checkbox"></td>
-                <td>Onion</td>
+                <td>
+                    <input type="checkbox" id="Item7">
+                    <label for="Item7">Rice</label>
+                </td>
                 <td>R$ 3.00</td>
             </tr>
+            <tr>
+                <td>
+                    <button id="Clean">Clean Selections</button>
+                </td>
+            </tr>
         </table>
-        <h5>Result:</h5>
+        <div class="container2">
+            <h5>Total:</h5>
+            <span>R$ 00.00</span>
+        </div>
     </div>
 </body>
 

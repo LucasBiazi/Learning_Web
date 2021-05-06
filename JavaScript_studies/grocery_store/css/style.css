@@ -24,6 +24,22 @@ body{
     border-radius: 25px;
 }
 
+.container2{
+    display: flex;
+    flex-direction: column;
+    font-size: 35px;
+}
+
 table{
-    background-color: rgb(243, 73, 200);
+    height: 50%;
+    width: 50%;
+}
+
+th{
+    font-size: 35px;
+    text-align: start;
+}
+
+td{
+    font-size: 30px;
 }
