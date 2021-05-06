@@ -9,8 +9,8 @@ Get_values = () => {
     return values
 }
 
-
-Add_items = () => {
+Load_buttons = () => {
+    //Load item's buttons
     for (let i = 1; i < 8; i++) {
         document.getElementById("Item" + i).addEventListener("click", () => {
             let total = parseInt(document.getElementById("total").innerText)
@@ -22,13 +22,10 @@ Add_items = () => {
             document.getElementById("total").innerText = total
         })
     }
-
+    //Load Clear button
+    const clean_button = document.getElementById("Clean")
+    clean_button.addEventListener("click", Clean_selections)
 }
 
 // Load Page buttons
-document.addEventListener("DOMContentLoaded", () => {
-    const clean_button = document.getElementById("Clean")
-    clean_button.addEventListener("click", Clean_selections)
-    Clean_selections()
-    Add_items()
-})
+document.addEventListener("DOMContentLoaded", () => { Clean_selections(), Load_buttons() })
