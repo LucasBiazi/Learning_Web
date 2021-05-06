@@ -29,6 +29,9 @@ body{
     flex-direction: column;
     font-size: 35px;
 }
+.total_div{
+    width: 200px;
+}
 
 table{
     height: 50%;
