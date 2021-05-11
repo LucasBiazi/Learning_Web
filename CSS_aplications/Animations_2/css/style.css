@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;    
+}
+
+.tool_bar{
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: lightcyan;
+}
+
+.tool_bar>a{
+    border-radius: 100%;
+}
+
+.tool_bar>a>img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.tool_bar>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 400px;
+}
+
+.tool_bar>div>a{
+    text-decoration: none;
+    color: #000;
+}
