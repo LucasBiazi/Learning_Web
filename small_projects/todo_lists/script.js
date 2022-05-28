@@ -1,3 +1,4 @@
+//Adds a new note
 const add_note = () => {
   // Creates a new note and its props
   const new_note = document.createElement("div");
@@ -26,15 +27,32 @@ const add_note = () => {
   new_input.setAttribute("placeholder", "Note's title");
   new_note.appendChild(new_form);
   new_form.appendChild(new_ol);
+  new_ol.setAttribute("id", "ol_id");
   new_note.appendChild(new_button);
-  new_button.setAttribute("value", "+");
   new_button.classList.add("more_items");
+  new_button.setAttribute("id", "more_items");
 
   //Inserts the new note
   const note_block = document.getElementById("notes");
   note_block.appendChild(new_note);
+  document
+    .getElementById("more_items")
+    .addEventListener("click", add_more_items);
 };
 
+const add_more_items = () => {
+  let new_ol = document.getElementById("ol_id");
+  for (let i = 0; i < 5; i++) {
+    let new_li = document.createElement("li");
+    let new_checkbox = document.createElement("input");
+    new_checkbox.setAttribute("type", "checkbox");
+    let new_li_input = document.createElement("input");
+    new_li_input.classList.add("li_input");
+    new_ol.appendChild(new_li);
+    new_li.appendChild(new_checkbox);
+    new_li.appendChild(new_li_input);
+  }
+};
 //Removes all notes
 const remove_note = () => {
   while (document.getElementById("note") != null) {
