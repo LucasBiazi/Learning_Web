@@ -4,6 +4,7 @@ const add_note = () => {
   const new_input = document.createElement("input");
   const new_form = document.createElement("form");
   const new_ol = document.createElement("ol");
+  const new_button = document.createElement("button");
 
   //Populates the new note with inputs and checkboxes
   for (let i = 0; i < 5; i++) {
@@ -16,7 +17,7 @@ const add_note = () => {
     new_li.appendChild(new_checkbox);
     new_li.appendChild(new_li_input);
   }
-  
+
   //New note's settings
   new_note.setAttribute("id", "note");
   new_note.classList.add("note");
@@ -25,6 +26,9 @@ const add_note = () => {
   new_input.setAttribute("placeholder", "Note's title");
   new_note.appendChild(new_form);
   new_form.appendChild(new_ol);
+  new_note.appendChild(new_button);
+  new_button.setAttribute("value", "+");
+  new_button.classList.add("more_items");
 
   //Inserts the new note
   const note_block = document.getElementById("notes");
