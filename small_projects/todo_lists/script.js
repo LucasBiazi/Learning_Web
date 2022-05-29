@@ -20,28 +20,27 @@ const add_note = () => {
   }
 
   //New note's settings
-  new_note.setAttribute("id", "note");
   new_note.classList.add("note");
   new_note.appendChild(new_input);
   new_input.classList.add("note_input");
   new_input.setAttribute("placeholder", "Note's title");
   new_note.appendChild(new_form);
+  new_ol.classList.add("ols");
   new_form.appendChild(new_ol);
-  new_ol.setAttribute("id", "ol_id");
   new_note.appendChild(new_button);
   new_button.classList.add("more_items");
-  new_button.setAttribute("id", "more_items");
 
-  //Inserts the new note
+  //Inserts the new note and button
   const note_block = document.getElementById("notes");
   note_block.appendChild(new_note);
-  document
-    .getElementById("more_items")
-    .addEventListener("click", add_more_items);
+  new_button.addEventListener("click", add_more_items);
+  new_button.innerHTML = "+";
 };
 
+//Adds more items
 const add_more_items = () => {
-  let new_ol = document.getElementById("ol_id");
+  //console.log(new_button.parentElement.nodeName);
+  //let new_ol = document.getElementsByClassName("ols")[];
   for (let i = 0; i < 5; i++) {
     let new_li = document.createElement("li");
     let new_checkbox = document.createElement("input");
@@ -53,10 +52,14 @@ const add_more_items = () => {
     new_li.appendChild(new_li_input);
   }
 };
+
 //Removes all notes
 const remove_note = () => {
-  while (document.getElementById("note") != null) {
-    document.getElementById("note").remove();
+  let amount_of_notes = document.getElementsByClassName("note").length;
+  console.log(amount_of_notes);
+  while (amount_of_notes != 0) {
+    amount_of_notes--;
+    document.getElementsByClassName("note")[amount_of_notes].remove();
   }
   alert("All notes were removed.");
 };
