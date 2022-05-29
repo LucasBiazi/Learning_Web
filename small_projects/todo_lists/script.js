@@ -39,9 +39,7 @@ const add_note = () => {
 
 //Adds more items
 const add_more_items = (e) => {
-  const new_ol = e.target.parentNode.querySelector('ol');
-  //console.log(new_button.parentElement.nodeName);
-  //let new_ol = document.getElementsByClassName("ols")[];
+  const new_ol = e.target.parentNode.querySelector("ol");
   for (let i = 0; i < 5; i++) {
     let new_li = document.createElement("li");
     let new_checkbox = document.createElement("input");
@@ -57,12 +55,23 @@ const add_more_items = (e) => {
 //Removes all notes
 const remove_note = () => {
   let amount_of_notes = document.getElementsByClassName("note").length;
-  console.log(amount_of_notes);
-  while (amount_of_notes != 0) {
-    amount_of_notes--;
-    document.getElementsByClassName("note")[amount_of_notes].remove();
-  }
-  alert("All notes were removed.");
+  let set_fade = () => {
+    while (amount_of_notes != 0) {
+      amount_of_notes--;
+      document
+        .getElementsByClassName("note")
+        [amount_of_notes].classList.add("deleted_note");
+    }
+  };
+  let delete_all = () => {
+    amount_of_notes = document.getElementsByClassName("deleted_note").length;
+    while (amount_of_notes != 0) {
+      amount_of_notes--;
+      document.getElementsByClassName("deleted_note")[amount_of_notes].remove();
+    }
+  };
+  set_fade();
+  setTimeout(delete_all, 200);
 };
 
 // Loads the buttons
