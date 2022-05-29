@@ -38,7 +38,8 @@ const add_note = () => {
 };
 
 //Adds more items
-const add_more_items = () => {
+const add_more_items = (e) => {
+  const new_ol = e.target.parentNode.querySelector('ol');
   //console.log(new_button.parentElement.nodeName);
   //let new_ol = document.getElementsByClassName("ols")[];
   for (let i = 0; i < 5; i++) {
