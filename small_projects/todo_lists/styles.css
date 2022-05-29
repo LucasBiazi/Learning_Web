@@ -1,93 +1,138 @@
-*{
-	padding: 0px;
-	margin: 0px;
+* {
+  padding: 0px;
+  margin: 0px;
 }
-body{
-	display: flex;
-	flex-direction: column;
+body {
+  display: flex;
+  flex-direction: column;
 }
-.top_bar{
-	width: 100%;
-	height: 10vh;
-	background-color: #95E29B;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+@keyframes drop_down {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 10vh;
+  }
 }
-button{
-	font-size: 35px;
-	border: none;
-	width: 15%;
-	height: 10vh;
-	background-color: #3BCE4B;
-	cursor: pointer;
+@keyframes follow_up {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 90vh;
+  }
 }
-.notes{
-	width: 100%;
-	height: 90vh;
-	overflow: auto;
-	background-color: black;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+.top_bar {
+  width: 100%;
+  height: 10vh;
+  background-color: #95e29b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation-name: drop_down;
+  animation-duration: 0.8s;
 }
-
-.note{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 20px;
-	height: 40vh;
-	width: 30%;
-	border-radius: 10px;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: flex-end;
-
+button {
+  font-size: 35px;
+  border: none;
+  width: 15%;
+  height: 10vh;
+  background-color: #3bce4b;
+  cursor: pointer;
 }
-
-.note_input{
-	margin-top: 20px;
-	margin-right: 5%;
-	font-size: 30px;
-	width: 90%;
-	border-style: solid;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-color: black;
+.notes {
+  width: 100%;
+  height: 90vh;
+  overflow: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation-name: follow_up;
+  animation-duration: 0.8s;
 }
 
-form{
-	margin-top: 10px;
-	margin-right: 15%;
-	width: 80%;
-	height: 49%;
-	overflow-y: auto;
+@keyframes pop {
+  from {
+    width: 7.5%;
+    height: 10vh;
+  }
+  to {
+    width: 30%;
+    height: 40vh;
+  }
 }
 
-li{
-	border: none;
-	width: 70%;
-	display: flex;
+.note {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  height: 40vh;
+  width: 30%;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  animation-name: pop;
+  animation-duration: 0.2s;
 }
 
-.li_input{
-	border-style: solid;
-	border-color: black;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	margin-left: 10px;
-	font-size: 20px;
+@keyframes deleting_note {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-.more_items{
-	width: 35px;
-	height: 35px;
-	margin-right: 2%;
-	border-radius: 100%;
-	font-size: 20px;
+.deleted_note {
+  animation-name: deleting_note;
+  animation-duration: 0.2s;
+}
+.note_input {
+  margin-top: 20px;
+  margin-right: 5%;
+  font-size: 30px;
+  width: 90%;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: black;
+}
+
+form {
+  margin-top: 10px;
+  margin-right: 15%;
+  width: 80%;
+  height: 49%;
+  overflow-y: auto;
+}
+
+li {
+  border: none;
+  width: 70%;
+  display: flex;
+}
+
+.li_input {
+  border-style: solid;
+  border-color: black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.more_items {
+  width: 35px;
+  height: 35px;
+  margin-right: 2%;
+  border-radius: 100%;
+  font-size: 20px;
 }
