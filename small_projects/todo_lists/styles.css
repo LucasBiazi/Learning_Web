@@ -136,3 +136,26 @@ li {
   border-radius: 100%;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 400px) {
+  .notes {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  @keyframes pop {
+    from {
+      width: 20%;
+      height: 10vh;
+    }
+    to {
+      width: 80%;
+      height: 40vh;
+    }
+  }
+  .note {
+    margin-left: 0px;
+    width: 80%;
+  }
+}
