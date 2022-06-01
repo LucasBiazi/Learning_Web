@@ -52,14 +52,45 @@ a {
   margin-bottom: 20px;
 }
 
-.main{
-    width: 90%;
-    height: 100vh;
-    display: flex;
+.main {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main_form{
-    width: 100px;
-    height: 100px;
-    background-color: red;
+.main_form {
+  width: 80%;
+  height: 80vh;
+  border-style: solid;
+  border-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.labels {
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.inputs{
+  width: 20%;
+  color: white;
+  font-size: 15px;
+  border-style: solid;
+  border-color: white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+  
+}
+
+.register_button{
+  margin-top: 20px;
+  width: 25%;
 }
