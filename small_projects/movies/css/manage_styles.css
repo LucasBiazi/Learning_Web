@@ -1,0 +1,58 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 18px;
+  width: 10%;
+  height: 10vh;
+  border-style: solid;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+@keyframes vanish {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.appear{
+    opacity: 1;
+    animation-name: appear;
+    animation-duration: 0.3s;
+}
+
+.vanish{
+    opacity: 0;
+    animation-name: vanish;
+    animation-duration: 0.3s;
+}
