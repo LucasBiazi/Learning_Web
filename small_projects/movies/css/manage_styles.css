@@ -82,7 +82,8 @@ a {
   }
 }
 
-.main_form {
+.main_form,
+.movies_table {
   width: 80%;
   height: 80vh;
   border-style: solid;
@@ -115,6 +116,45 @@ a {
 .register_button {
   margin-top: 20px;
   width: 25%;
+}
+
+.movies_table {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.name_header,
+.year_header {
+  color: white;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  text-align: start;
+}
+
+.name_header {
+  width: 350px;
+}
+
+.year_header {
+  width: 50px;
+}
+
+.td1,
+.td2 {
+  color: white;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  text-align: start;
+}
+
+.td1 {
+  width: 350px;
+}
+
+.td2 {
+  width: 50px;
 }
 
 @keyframes pop_up {

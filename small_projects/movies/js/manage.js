@@ -61,6 +61,8 @@ const register = () => {
 const clear_main = () => {
   if (document.getElementsByClassName("main_form").length >= 1) {
     document.getElementsByClassName("main_form")[0].remove();
+  } else if (document.getElementsByClassName("movies_table").length >= 1) {
+    document.getElementsByClassName("movies_table")[0].remove();
   }
 };
 
@@ -113,6 +115,45 @@ const register_movie = () => {
 
 const list_movies = () => {
   clear_main();
+
+  //Creates the table
+  const main = document.getElementById("main");
+  const table = document.createElement("table");
+  const table_row = document.createElement("tr");
+  const name_header = document.createElement("th");
+  const year_header = document.createElement("th");
+
+  //Adding the classes
+  table.classList.add("movies_table");
+  name_header.classList.add("name_header");
+  year_header.classList.add("year_header");
+
+  //Apending children
+  main.appendChild(table);
+  table.appendChild(table_row);
+  table_row.appendChild(name_header);
+  table_row.appendChild(year_header);
+
+  //Giving them values
+  name_header.innerHTML = "Name";
+  year_header.innerHTML = "Year";
+
+  //Populating the table
+  for (let i = 0; i < movies.length; i++) {
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+
+    td1.classList.add("td1");
+    td2.classList.add("td2");
+    td1.innerHTML = movies[i].name;
+    td2.innerHTML = movies[i].year;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+
+    table.appendChild(tr);
+  }
 };
 
 const load_buttons = () => {
