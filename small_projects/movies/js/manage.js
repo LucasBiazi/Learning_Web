@@ -1,19 +1,61 @@
 //Useful variables
 const movies = [];
 
+const pop_up_message = (m) => {
+  //If there's already a message, delete it
+  if (document.getElementById("message") != null) {
+    document.getElementById("message").remove();
+  }
+  //Construct the message
+  const form = document.getElementById("main_form");
+  const message = document.createElement("div");
+  const content = document.createElement("p");
+  message.classList.add("message");
+  message.setAttribute("id", "message");
+  content.classList.add("content");
+  message.appendChild(content);
+  form.appendChild(message);
+  content.innerHTML = m;
+
+  //Delete the message after x seconds
+  vanish_message = () => {
+    message.classList.add("vanish_message");
+  };
+  delete_message = () => {
+    message.remove();
+  };
+  setTimeout(vanish_message, 4000);
+  setTimeout(delete_message, 4300);
+};
+
 const register = () => {
+  //Get values and register the new object
+  const amount_of_movies = movies.length;
   let name = document.getElementById("name_input");
   let year = document.getElementById("year_input");
   let description = document.getElementById("description_input");
-  const movie = {
-    name: name.value,
-    year: year.value,
-    description: description.value,
-  };
-  movies.push(movie);
-  name.value = "";
-  year.value = "";
-  description.value = "";
+
+  //Making sure the inputs aren't blank
+  if (name.value == "" || year.value == "" || description.value == "") {
+    pop_up_message("Fill in all of the blanks!");
+  } else {
+    const movie = {
+      name: name.value,
+      year: year.value,
+      description: description.value,
+    };
+    movies.push(movie);
+    name.value = "";
+    year.value = "";
+    description.value = "";
+
+    //Making sure the new movie was added
+    if (movies.length > amount_of_movies) {
+      pop_up_message("A new movie has been successfully registered!");
+    } else {
+      pop_up_message("Error, movie not registered!");
+    }
+  }
 };
 
 const clear_main = () => {
@@ -41,6 +83,7 @@ const register_movie = () => {
   //Tweaking Elements
   form.classList.add("main_form");
   form.setAttribute("onsubmit", "return false");
+  form.setAttribute("id", "main_form");
   name_label.classList.add("labels");
   name_label.innerHTML = "Name";
   name_input.classList.add("inputs");

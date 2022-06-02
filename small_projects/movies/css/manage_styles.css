@@ -116,3 +116,44 @@ a {
   margin-top: 20px;
   width: 25%;
 }
+
+@keyframes pop_up {
+  from {
+    margin-top: 60%;
+  }
+  to {
+    margin-top: 30%;
+  }
+}
+
+@keyframes pop_down {
+  from {
+    margin-top: 30%;
+  }
+  to {
+    margin-top: 60%;
+  }
+}
+
+.message {
+  width: 30%;
+  height: 10vh;
+  border-style: solid;
+  border-color: white;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+  animation: pop_up 0.3s;
+}
+
+.vanish_message {
+  margin-top: 60%;
+  animation: pop_down 0.3s;
+}
+
+.content {
+  font-size: 20px;
+  color: white;
+}
