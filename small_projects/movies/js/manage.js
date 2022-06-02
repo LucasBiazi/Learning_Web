@@ -36,9 +36,9 @@ const register = () => {
   let description = document.getElementById("description_input");
 
   //Making sure the inputs aren't blank
-  if (name.value == "" || year.value == "" || description.value == "") {
-    pop_up_message("Fill in all of the blanks!");
-  } else {
+  //if (name.value == "" || year.value == "" || description.value == "") {
+    //pop_up_message("Fill in all of the blanks!");
+  //} else {
     const movie = {
       name: name.value,
       year: year.value,
@@ -55,7 +55,7 @@ const register = () => {
     } else {
       pop_up_message("Error, movie not registered!");
     }
-  }
+ // }
 };
 
 const clear_main = () => {
@@ -127,6 +127,7 @@ const list_movies = () => {
   table.classList.add("movies_table");
   name_header.classList.add("name_header");
   year_header.classList.add("year_header");
+  table_row.classList.add("tr");
 
   //Apending children
   main.appendChild(table);

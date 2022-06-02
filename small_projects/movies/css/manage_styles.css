@@ -121,10 +121,18 @@ a {
 .movies_table {
   justify-content: flex-start;
   align-items: flex-start;
+  overflow: auto;
+}
+
+.tr {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .name_header,
 .year_header {
+  background-color: black;
   color: white;
   border: 2px;
   border-style: solid;
