@@ -2,16 +2,18 @@
 const movies = [];
 
 const register = () => {
-  const name = document.getElementById("name_input").value;
-  const year = document.getElementById("year_input").value;
-  const description = document.getElementById("description_input").value;
+  let name = document.getElementById("name_input");
+  let year = document.getElementById("year_input");
+  let description = document.getElementById("description_input");
   const movie = {
-    name: name,
-    year: year,
-    description: description,
+    name: name.value,
+    year: year.value,
+    description: description.value,
   };
   movies.push(movie);
-  console.log(movies);
+  name.value = "";
+  year.value = "";
+  description.value = "";
 };
 
 const clear_main = () => {
