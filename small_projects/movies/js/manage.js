@@ -36,9 +36,9 @@ const register = () => {
   let description = document.getElementById("description_input");
 
   //Making sure the inputs aren't blank
-  //if (name.value == "" || year.value == "" || description.value == "") {
-    //pop_up_message("Fill in all of the blanks!");
-  //} else {
+  if (name.value == "" || year.value == "" || description.value == "") {
+    pop_up_message("Fill in all of the blanks!");
+  } else {
     const movie = {
       name: name.value,
       year: year.value,
@@ -55,7 +55,7 @@ const register = () => {
     } else {
       pop_up_message("Error, movie not registered!");
     }
- // }
+  }
 };
 
 const clear_main = () => {
@@ -77,7 +77,6 @@ const register_movie = () => {
   const name_input = document.createElement("input");
   const year_label = document.createElement("label");
   const year_input = document.createElement("input");
-  year_input.setAttribute("type", "number");
   const description_label = document.createElement("label");
   const description_input = document.createElement("input");
   const register_button = document.createElement("button");
@@ -94,6 +93,7 @@ const register_movie = () => {
   year_label.innerHTML = "Year";
   year_input.classList.add("inputs");
   year_input.setAttribute("id", "year_input");
+  year_input.setAttribute("type", "number");
   description_label.classList.add("labels");
   description_label.innerHTML = "Description";
   description_input.classList.add("inputs");
@@ -120,18 +120,22 @@ const list_movies = () => {
   const main = document.getElementById("main");
   const table = document.createElement("table");
   const table_row = document.createElement("tr");
+  const table_items_div = document.createElement("div");
   const name_header = document.createElement("th");
   const year_header = document.createElement("th");
+  const description = document.createElement("p");
 
   //Adding the classes
+  table_items_div.classList.add("test");
   table.classList.add("movies_table");
   name_header.classList.add("name_header");
   year_header.classList.add("year_header");
   table_row.classList.add("tr");
+  description.classList.add("description");
 
   //Apending children
   main.appendChild(table);
-  table.appendChild(table_row);
+  table_items_div.appendChild(table_row);
   table_row.appendChild(name_header);
   table_row.appendChild(year_header);
 
@@ -150,10 +154,21 @@ const list_movies = () => {
     td1.innerHTML = movies[i].name;
     td2.innerHTML = movies[i].year;
 
+    table_items_div.appendChild(tr);
     tr.appendChild(td1);
     tr.appendChild(td2);
+    tr.addEventListener("mouseover", (e) => {
+      let movie_name = e.target.parentNode.querySelector("td").innerHTML;
+      for (let i = 0; i < movies.length; i++) {
+        if (movies[i].name === movie_name) {
+          description.innerHTML = movies[i].description;
+          break;
+        }
+      }
+    });
 
-    table.appendChild(tr);
+    table.appendChild(table_items_div);
+    table.appendChild(description);
   }
 };
 
