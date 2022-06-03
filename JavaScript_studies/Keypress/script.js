@@ -5,20 +5,20 @@ const load = () => {
   window.addEventListener("keydown", (e) => {
     switch (e.key) {
       case "ArrowRight":
-        x += 10;
-        square.style.marginRight = x;
+        x = x + 10;
+        square.style.marginLeft = x + "px";
         break;
       case "ArrowLeft":
-        x += -10;
-        square.style.marginLeft = x;
+        x = x - 10;
+        square.style.marginLeft = x + "px";
         break;
       case "ArrowDown":
-        y += -10;
-        square.style.marginTop = y;
+        y = y + 10;
+        square.style.marginTop = y + "px";
         break;
       case "ArrowUp":
-        y += 10;
-        square.style.marginBottom = y;
+        y = y - 10;
+        square.style.marginTop = y + "px";
         break;
     }
     console.log("X: " + x);
