@@ -123,7 +123,9 @@ const list_movies = () => {
   const table_items_div = document.createElement("div");
   const name_header = document.createElement("th");
   const year_header = document.createElement("th");
+  const info_div = document.createElement("div");
   const description = document.createElement("p");
+  const search_input = document.createElement("input");
 
   //Adding the classes
   table_items_div.classList.add("test");
@@ -132,6 +134,9 @@ const list_movies = () => {
   year_header.classList.add("year_header");
   table_row.classList.add("tr");
   description.classList.add("description");
+  search_input.classList.add("inputs");
+  search_input.setAttribute("id", "search_input");
+  info_div.classList.add("info_div");
 
   //Apending children
   main.appendChild(table);
@@ -166,13 +171,28 @@ const list_movies = () => {
         }
       }
     });
-
-    table.appendChild(table_items_div);
-    table.appendChild(description);
   }
+  table.appendChild(table_items_div);
+  table.appendChild(info_div);
+  info_div.appendChild(search_input);
+  info_div.appendChild(description);
+  search_movies();
 };
 
-const load_buttons = () => {
+const search_movies = () => {
+  const search_input = document.getElementById("search_input");
+  search_input.addEventListener("change", () => {
+    const ordered_movies = [];
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].name === search_input.value) {
+        ordered_movies.push(movies[i]);
+      }
+    }
+    alert(ordered_movies.length + " movie(s) found with this name.");
+  });
+};
+
+const load = () => {
   const register_movie_button = document.getElementById("register");
   const movie_list_button = document.getElementById("list");
   register_movie_button.addEventListener("click", register_movie);
@@ -180,5 +200,5 @@ const load_buttons = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  load_buttons();
+  load();
 });

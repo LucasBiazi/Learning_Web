@@ -131,7 +131,7 @@ a {
   position: sticky;
 }
 
-tr:hover{
+tr:hover {
   background-color: gray;
 }
 
@@ -170,15 +170,24 @@ tr:hover{
   width: 50px;
 }
 
-.description{
-  width: 30%;
+.info_div {
+  width: 40%;
+  height: 70vh;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.description {
+  width: 80%;
   height: 40vh;
   border: 1px;
   border-style: solid;
   border-color: white;
   overflow: auto;
-  margin-right: 15%;
-  margin-top: 20vh;
+  /* margin-right: 15%;
+  margin-top: 20vh; */
   padding: 10px;
   color: white;
   font-size: 20px;
