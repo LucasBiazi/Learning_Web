@@ -1,6 +1,11 @@
 const start_game = (e) => {
-  //Remove Greet
-  const chosen_symbol = e.target.innerHTML;
+  //Set game variables
+  let chosen_symbol = e.target.innerHTML;
+  let unchosen_symbol;
+  if (chosen_symbol === "X") unchosen_symbol = "O";
+  else unchosen_symbol = "X";
+
+  //Remove Greeting
   const greet_div = document.getElementById("greet_div");
   const delete_greet = () => greet_div.remove();
   greet_div.classList.add("fade");
@@ -10,6 +15,7 @@ const start_game = (e) => {
     const chosen_position = e.target;
     if (chosen_position.innerHTML == "") {
       chosen_position.innerHTML = chosen_symbol;
+      [chosen_symbol, unchosen_symbol] = [unchosen_symbol, chosen_symbol];
     }
   };
 
