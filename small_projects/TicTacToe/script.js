@@ -1,6 +1,17 @@
-const start_game = () => {
+const start_game = (e) => {
+  //Remove Greet
+  const chosen_symbol = e.target.innerHTML;
   const greet_div = document.getElementById("greet_div");
-  greet_div.classList.add("pop_out");
+  const delete_greet = () => greet_div.remove();
+  greet_div.classList.add("fade");
+  setTimeout(delete_greet, 300);
+
+  const play = (e) => {
+    const chosen_position = e.target;
+    if (chosen_position.innerHTML == "") {
+      chosen_position.innerHTML = chosen_symbol;
+    }
+  };
 
   //Set table
   const a1 = document.getElementById("a1");
@@ -12,6 +23,15 @@ const start_game = () => {
   const c1 = document.getElementById("c1");
   const c2 = document.getElementById("c2");
   const c3 = document.getElementById("c3");
+  a1.addEventListener("click", play);
+  a2.addEventListener("click", play);
+  a3.addEventListener("click", play);
+  b1.addEventListener("click", play);
+  b2.addEventListener("click", play);
+  b3.addEventListener("click", play);
+  c1.addEventListener("click", play);
+  c2.addEventListener("click", play);
+  c3.addEventListener("click", play);
 };
 
 const greet_player = () => {
@@ -32,6 +52,7 @@ const greet_player = () => {
   how_to_play_div.classList.add("how_to_play_div");
   choose_div.classList.add("choose_div");
   how_to_play_label.classList.add("how_to_play_label");
+  how_to_play.classList.add("how_to_play");
   choose_label.classList.add("choose_label");
   div_buttons.classList.add("div_buttons");
   div_O.classList.add("div_O");
