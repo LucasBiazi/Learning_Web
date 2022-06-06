@@ -1,6 +1,17 @@
 const start_game = () => {
   const greet_div = document.getElementById("greet_div");
-  greet_div.remove();
+  greet_div.classList.add("pop_out");
+
+  //Set table
+  const a1 = document.getElementById("a1");
+  const a2 = document.getElementById("a2");
+  const a3 = document.getElementById("a3");
+  const b1 = document.getElementById("b1");
+  const b2 = document.getElementById("b2");
+  const b3 = document.getElementById("b3");
+  const c1 = document.getElementById("c1");
+  const c2 = document.getElementById("c2");
+  const c3 = document.getElementById("c3");
 };
 
 const greet_player = () => {
@@ -38,6 +49,8 @@ const greet_player = () => {
   div_buttons.appendChild(div_X);
 
   //Giving them values
+  div_X.innerHTML = "X";
+  div_O.innerHTML = "O";
   greet_div.setAttribute("id", "greet_div");
   how_to_play_label.innerHTML = "How to play Tic-Tac-Toe";
   how_to_play.innerHTML =

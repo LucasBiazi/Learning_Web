@@ -12,6 +12,28 @@ body {
   align-items: center;
 }
 
+@keyframes pop_up {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 60vh;
+  }
+}
+
+@keyframes pop_up {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 60vh;
+  }
+}
+
+.pop_out{
+  animation: pop_up 0.3 reverse;
+}
+
 .greet_div {
   position: absolute;
   width: 100%;
@@ -19,6 +41,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: lightgreen;
+  animation: pop_up 0.3s;
 }
 
 .how_to_play_div,
@@ -34,16 +57,17 @@ body {
 }
 
 .div_buttons {
-  margin-bottom: 20%;
+  margin-bottom: 15%;
   width: 100%;
   display: flex;
 }
 
 .how_to_play_label,
 .choose_label {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
 }
+
 .choose_label {
   width: 100%;
 }
@@ -52,13 +76,16 @@ body {
 .div_X {
   width: 30%;
   height: 30vh;
-  background-color: red;
+  font-size: 250px;
   cursor: pointer;
+  border: 5px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .div_X {
   margin-left: 10%;
-  background-color: blue;
 }
 
 .v,
@@ -69,13 +96,35 @@ body {
   justify-content: space-between;
 }
 
-.h{
+.h {
   position: fixed;
   transform: rotate(90deg);
 }
 
-.v_bar1,.v_bar2,.h_bar1,.h_bar2{
+.v_bar1,
+.v_bar2,
+.h_bar1,
+.h_bar2 {
   width: 5%;
   height: 90vh;
   background-color: gray;
+}
+
+.playable_div {
+  width: 41%;
+  height: 90vh;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playable_div div {
+  width: 30%;
+  height: 27vh;
+  cursor: pointer;
+  font-size: 150px;
+  text-align: center;
+  color: white;
 }
