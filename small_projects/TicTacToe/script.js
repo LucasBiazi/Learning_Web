@@ -52,6 +52,12 @@ const greet_player = () => {
   const div_buttons = document.createElement("div");
   const div_X = document.createElement("div");
   const div_O = document.createElement("div");
+  const sp_label = document.createElement("label");
+  const am_label = document.createElement("label");
+  const mode_div1 = document.createElement("div");
+  const mode_div2 = document.createElement("div");
+  const single_player = document.createElement("input");
+  const against_machine = document.createElement("input");
 
   //Adding classes
   greet_div.classList.add("greet_div");
@@ -63,6 +69,8 @@ const greet_player = () => {
   div_buttons.classList.add("div_buttons");
   div_O.classList.add("div_O");
   div_X.classList.add("div_X");
+  mode_div1.classList.add("mode_div1");
+  mode_div2.classList.add("mode_div2");
 
   //Appending Children
   body.appendChild(greet_div);
@@ -72,12 +80,23 @@ const greet_player = () => {
   how_to_play_div.appendChild(how_to_play);
   choose_div.appendChild(choose_label);
   choose_div.appendChild(div_buttons);
+  choose_div.appendChild(mode_div1);
+  choose_div.appendChild(mode_div2);
+  mode_div1.appendChild(single_player);
+  mode_div1.appendChild(sp_label);
+  mode_div2.appendChild(against_machine);
+  mode_div2.appendChild(am_label);
   div_buttons.appendChild(div_O);
   div_buttons.appendChild(div_X);
 
   //Giving them values
   div_X.innerHTML = "X";
   div_O.innerHTML = "O";
+  sp_label.innerHTML = "Single Player";
+  single_player.setAttribute("checked", true)
+  am_label.innerHTML = "Against the Computer";
+  single_player.setAttribute("type", "checkbox");
+  against_machine.setAttribute("type", "checkbox");
   greet_div.setAttribute("id", "greet_div");
   how_to_play_label.innerHTML = "How to play Tic-Tac-Toe";
   how_to_play.innerHTML =

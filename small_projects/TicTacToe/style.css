@@ -12,24 +12,6 @@ body {
   align-items: center;
 }
 
-@keyframes pop_up {
-  from {
-    height: 0vh;
-  }
-  to {
-    height: 60vh;
-  }
-}
-
-@keyframes pop_up {
-  from {
-    height: 40vh;
-  }
-  to {
-    height: 60vh;
-  }
-}
-
 @keyframes fade {
   from {
     opacity: 1;
@@ -46,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: lightgreen;
-  animation: pop_up 0.3s;
+  animation: fade 0.3s reverse;
 }
 
 .fade {
@@ -61,12 +43,11 @@ body {
 }
 
 .choose_div {
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .div_buttons {
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   width: 100%;
   display: flex;
 }
@@ -82,7 +63,7 @@ body {
   margin-left: 10px;
 }
 
-.how_to_play{
+.how_to_play {
   margin-top: 30px;
 }
 
@@ -104,6 +85,11 @@ body {
 
 .div_X {
   margin-left: 10%;
+}
+.mode_div1 label,
+.mode_div2 label {
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .v,
