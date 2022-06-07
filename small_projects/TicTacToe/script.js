@@ -30,17 +30,31 @@ const start_game = (e) => {
         c2.innerHTML,
         c3.innerHTML,
       ];
-      let i = 0;
+      let horizontal = 0;
+      let vertical = 0;
       for (let u = 0; u < 3; u++) {
+        //Checks for horizontal win
         if (
-          current_table[i] === current_table[i + 1] &&
-          current_table[i + 1] === current_table[i + 2] &&
-          current_table[i] != ""
+          current_table[horizontal] === current_table[horizontal + 1] &&
+          current_table[horizontal + 1] === current_table[horizontal + 2] &&
+          current_table[horizontal] != ""
         ) {
-          console.log(current_table[i] + " wins");
+          console.log(current_table[horizontal] + " wins");
           break;
         }
-        i = i + 3;
+        horizontal = horizontal + 3;
+        //Checks for vertical win
+        if (
+          current_table[vertical] === current_table[vertical + 3] &&
+          current_table[vertical + 3] === current_table[vertical + 6] &&
+          current_table[vertical] != ""
+        ) {
+          console.log(current_table[vertical] + " wins");
+          break;
+        }
+        vertical = vertical + 1;
+        //Checks for perpendicular win
+        if(current_table[perpendicular])
       }
 
       console.log(current_table);
