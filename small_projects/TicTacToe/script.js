@@ -2,6 +2,7 @@ const start_game = (e) => {
   //Set game variables
   let chosen_symbol = e.target.innerHTML;
   let unchosen_symbol;
+  const game_mode = document.getElementById("game_mode").value;
   if (chosen_symbol === "X") unchosen_symbol = "O";
   else unchosen_symbol = "X";
 
@@ -9,33 +10,66 @@ const start_game = (e) => {
   const greet_div = document.getElementById("greet_div");
   greet_div.remove();
 
-  const play = (e) => {
-    const chosen_position = e.target;
-    if (chosen_position.innerHTML == "") {
-      chosen_position.innerHTML = chosen_symbol;
-      [chosen_symbol, unchosen_symbol] = [unchosen_symbol, chosen_symbol];
-    }
-  };
+  //Single Player
+  if (game_mode === "single_player") {
+    const play = (e) => {
+      const chosen_position = e.target;
+      if (chosen_position.innerHTML == "") {
+        chosen_position.innerHTML = chosen_symbol;
+        [chosen_symbol, unchosen_symbol] = [unchosen_symbol, chosen_symbol];
+      }
+      // Checks for winner
+      let current_table = [
+        a1.innerHTML,
+        a2.innerHTML,
+        a3.innerHTML,
+        b1.innerHTML,
+        b2.innerHTML,
+        b3.innerHTML,
+        c1.innerHTML,
+        c2.innerHTML,
+        c3.innerHTML,
+      ];
+      let i = 0;
+      for (let u = 0; u < 3; u++) {
+        if (
+          current_table[i] === current_table[i + 1] &&
+          current_table[i + 1] === current_table[i + 2] &&
+          current_table[i] != ""
+        ) {
+          console.log(current_table[i] + " wins");
+          break;
+        }
+        i = i + 3;
+      }
 
-  //Set table
-  const a1 = document.getElementById("a1");
-  const a2 = document.getElementById("a2");
-  const a3 = document.getElementById("a3");
-  const b1 = document.getElementById("b1");
-  const b2 = document.getElementById("b2");
-  const b3 = document.getElementById("b3");
-  const c1 = document.getElementById("c1");
-  const c2 = document.getElementById("c2");
-  const c3 = document.getElementById("c3");
-  a1.addEventListener("click", play);
-  a2.addEventListener("click", play);
-  a3.addEventListener("click", play);
-  b1.addEventListener("click", play);
-  b2.addEventListener("click", play);
-  b3.addEventListener("click", play);
-  c1.addEventListener("click", play);
-  c2.addEventListener("click", play);
-  c3.addEventListener("click", play);
+      console.log(current_table);
+    };
+
+    //Set table
+    const a1 = document.getElementById("a1");
+    const a2 = document.getElementById("a2");
+    const a3 = document.getElementById("a3");
+    const b1 = document.getElementById("b1");
+    const b2 = document.getElementById("b2");
+    const b3 = document.getElementById("b3");
+    const c1 = document.getElementById("c1");
+    const c2 = document.getElementById("c2");
+    const c3 = document.getElementById("c3");
+    a1.addEventListener("click", play);
+    a2.addEventListener("click", play);
+    a3.addEventListener("click", play);
+    b1.addEventListener("click", play);
+    b2.addEventListener("click", play);
+    b3.addEventListener("click", play);
+    c1.addEventListener("click", play);
+    c2.addEventListener("click", play);
+    c3.addEventListener("click", play);
+  }
+
+  //Against the computer
+  else {
+  }
 };
 
 const greet_player = () => {
@@ -93,6 +127,7 @@ const greet_player = () => {
   div_X.innerHTML = "X";
   div_O.innerHTML = "O";
   mode_label.innerHTML = "Choose a gamemode";
+  select_mode.setAttribute("id", "game_mode");
   opt1.setAttribute("value", "single_player");
   opt1.innerHTML = "Single Player";
   opt2.setAttribute("value", "against_machine");
