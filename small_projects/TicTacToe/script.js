@@ -7,9 +7,7 @@ const start_game = (e) => {
 
   //Remove Greeting
   const greet_div = document.getElementById("greet_div");
-  const delete_greet = () => greet_div.remove();
-  greet_div.classList.add("fade");
-  setTimeout(delete_greet, 300);
+  greet_div.remove();
 
   const play = (e) => {
     const chosen_position = e.target;
@@ -52,12 +50,11 @@ const greet_player = () => {
   const div_buttons = document.createElement("div");
   const div_X = document.createElement("div");
   const div_O = document.createElement("div");
-  const sp_label = document.createElement("label");
-  const am_label = document.createElement("label");
-  const mode_div1 = document.createElement("div");
-  const mode_div2 = document.createElement("div");
-  const single_player = document.createElement("input");
-  const against_machine = document.createElement("input");
+  const mode_div = document.createElement("div");
+  const mode_label = document.createElement("label");
+  const select_mode = document.createElement("select");
+  const opt1 = document.createElement("option");
+  const opt2 = document.createElement("option");
 
   //Adding classes
   greet_div.classList.add("greet_div");
@@ -69,8 +66,7 @@ const greet_player = () => {
   div_buttons.classList.add("div_buttons");
   div_O.classList.add("div_O");
   div_X.classList.add("div_X");
-  mode_div1.classList.add("mode_div1");
-  mode_div2.classList.add("mode_div2");
+  mode_div.classList.add("mode_div");
 
   //Appending Children
   body.appendChild(greet_div);
@@ -80,28 +76,27 @@ const greet_player = () => {
   how_to_play_div.appendChild(how_to_play);
   choose_div.appendChild(choose_label);
   choose_div.appendChild(div_buttons);
-  choose_div.appendChild(mode_div1);
-  choose_div.appendChild(mode_div2);
-  mode_div1.appendChild(single_player);
-  mode_div1.appendChild(sp_label);
-  mode_div2.appendChild(against_machine);
-  mode_div2.appendChild(am_label);
   div_buttons.appendChild(div_O);
   div_buttons.appendChild(div_X);
+  choose_div.appendChild(mode_div);
+  mode_div.appendChild(mode_label);
+  mode_div.appendChild(select_mode);
+  select_mode.appendChild(opt1);
+  select_mode.appendChild(opt2);
 
   //Giving them values
-  div_X.innerHTML = "X";
-  div_O.innerHTML = "O";
-  sp_label.innerHTML = "Single Player";
-  single_player.setAttribute("checked", true)
-  am_label.innerHTML = "Against the Computer";
-  single_player.setAttribute("type", "checkbox");
-  against_machine.setAttribute("type", "checkbox");
   greet_div.setAttribute("id", "greet_div");
   how_to_play_label.innerHTML = "How to play Tic-Tac-Toe";
   how_to_play.innerHTML =
     "To win in Tic Tac Toe you must form an uninterrupted row with the chosen symbol. You can play with either the X's or O's.";
   choose_label.innerHTML = "Choose your symbol";
+  div_X.innerHTML = "X";
+  div_O.innerHTML = "O";
+  mode_label.innerHTML = "Choose a gamemode";
+  opt1.setAttribute("value", "single_player");
+  opt1.innerHTML = "Single Player";
+  opt2.setAttribute("value", "against_machine");
+  opt2.innerHTML = "Against The Computer";
 
   //Buttons' events
   div_O.addEventListener("click", start_game);

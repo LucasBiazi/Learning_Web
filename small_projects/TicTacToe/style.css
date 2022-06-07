@@ -86,10 +86,13 @@ body {
 .div_X {
   margin-left: 10%;
 }
-.mode_div1 label,
-.mode_div2 label {
+.mode_div label {
   font-size: 20px;
   margin-left: 10px;
+}
+
+.mode_div select{
+  margin-left: 5%;
 }
 
 .v,
