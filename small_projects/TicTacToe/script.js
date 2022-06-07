@@ -54,7 +54,22 @@ const start_game = (e) => {
         }
         vertical = vertical + 1;
         //Checks for perpendicular win
-        if(current_table[perpendicular])
+        if (
+          current_table[0] === current_table[4] &&
+          current_table[4] === current_table[8] &&
+          current_table[0] != ""
+        ) {
+          console.log(current_table[4] + " wins");
+          break;
+        }
+        if (
+          current_table[2] === current_table[4] &&
+          current_table[4] === current_table[6] &&
+          current_table[0] != ""
+        ) {
+          console.log(current_table[4] + " wins");
+          break;
+        }
       }
 
       console.log(current_table);
