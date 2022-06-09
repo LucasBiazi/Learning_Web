@@ -1,5 +1,4 @@
 const announce_winner = (winner) => {
-
   //Builds the announcement screen
   const body = document.getElementById("body");
   const winner_div = document.createElement("div");
@@ -16,7 +15,7 @@ const announce_winner = (winner) => {
   winner_div.appendChild(play_again);
 
   //Giving them values
-  p_winner.innerHTML = winner + " is the winner.";
+  p_winner.innerHTML = winner;
   play_again.setAttribute("href", "index.html");
   play_again.innerHTML = "Play Again";
 };
@@ -55,6 +54,10 @@ const start_game = (e) => {
       ];
       let horizontal = 0;
       let vertical = 0;
+
+      //Checks for playable spots
+      if (current_table.indexOf("") === -1) announce_winner("It's a tie!");
+
       for (let u = 0; u < 3; u++) {
         //Checks for horizontal win
         if (
@@ -62,7 +65,7 @@ const start_game = (e) => {
           current_table[horizontal + 1] === current_table[horizontal + 2] &&
           current_table[horizontal] != ""
         ) {
-          announce_winner(current_table[horizontal]);
+          announce_winner(current_table[horizontal] + " is the winner.");
           break;
         }
         horizontal = horizontal + 3;
@@ -72,7 +75,7 @@ const start_game = (e) => {
           current_table[vertical + 3] === current_table[vertical + 6] &&
           current_table[vertical] != ""
         ) {
-          announce_winner(current_table[vertical]);
+          announce_winner(current_table[vertical] + " is the winner.");
           break;
         }
         vertical = vertical + 1;
@@ -82,7 +85,7 @@ const start_game = (e) => {
           current_table[4] === current_table[8] &&
           current_table[0] != ""
         ) {
-          announce_winner(current_table[4]);
+          announce_winner(current_table[4] + " is the winner.");
           break;
         }
         if (
@@ -90,7 +93,7 @@ const start_game = (e) => {
           current_table[4] === current_table[6] &&
           current_table[2] != ""
         ) {
-          announce_winner(current_table[4]);
+          announce_winner(current_table[4] + " is the winner.");
           break;
         }
       }
