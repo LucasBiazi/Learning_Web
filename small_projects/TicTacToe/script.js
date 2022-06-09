@@ -27,10 +27,80 @@ const start_game = (e) => {
   const game_mode = document.getElementById("game_mode").value;
   if (chosen_symbol === "X") unchosen_symbol = "O";
   else unchosen_symbol = "X";
+  const a1 = document.getElementById("a1");
+  const a2 = document.getElementById("a2");
+  const a3 = document.getElementById("a3");
+  const b1 = document.getElementById("b1");
+  const b2 = document.getElementById("b2");
+  const b3 = document.getElementById("b3");
+  const c1 = document.getElementById("c1");
+  const c2 = document.getElementById("c2");
+  const c3 = document.getElementById("c3");
 
   //Remove Greeting
   const greet_div = document.getElementById("greet_div");
   greet_div.remove();
+
+  //Checks for winner
+  const verify_winner = () => {
+    // Checks for winner
+    let current_table = [
+      a1.innerHTML,
+      a2.innerHTML,
+      a3.innerHTML,
+      b1.innerHTML,
+      b2.innerHTML,
+      b3.innerHTML,
+      c1.innerHTML,
+      c2.innerHTML,
+      c3.innerHTML,
+    ];
+    let horizontal = 0;
+    let vertical = 0;
+
+    //Checks for playable spots
+    if (current_table.indexOf("") === -1) announce_winner("It's a tie!");
+
+    for (let u = 0; u < 3; u++) {
+      //Checks for horizontal win
+      if (
+        current_table[horizontal] === current_table[horizontal + 1] &&
+        current_table[horizontal + 1] === current_table[horizontal + 2] &&
+        current_table[horizontal] != ""
+      ) {
+        announce_winner(current_table[horizontal] + " is the winner.");
+        break;
+      }
+      horizontal = horizontal + 3;
+      //Checks for vertical win
+      if (
+        current_table[vertical] === current_table[vertical + 3] &&
+        current_table[vertical + 3] === current_table[vertical + 6] &&
+        current_table[vertical] != ""
+      ) {
+        announce_winner(current_table[vertical] + " is the winner.");
+        break;
+      }
+      vertical = vertical + 1;
+      //Checks for perpendicular win
+      if (
+        current_table[0] === current_table[4] &&
+        current_table[4] === current_table[8] &&
+        current_table[0] != ""
+      ) {
+        announce_winner(current_table[4] + " is the winner.");
+        break;
+      }
+      if (
+        current_table[2] === current_table[4] &&
+        current_table[4] === current_table[6] &&
+        current_table[2] != ""
+      ) {
+        announce_winner(current_table[4] + " is the winner.");
+        break;
+      }
+    }
+  };
 
   //Single Player
   if (game_mode === "single_player") {
@@ -40,75 +110,10 @@ const start_game = (e) => {
         chosen_position.innerHTML = chosen_symbol;
         [chosen_symbol, unchosen_symbol] = [unchosen_symbol, chosen_symbol];
       }
-      // Checks for winner
-      let current_table = [
-        a1.innerHTML,
-        a2.innerHTML,
-        a3.innerHTML,
-        b1.innerHTML,
-        b2.innerHTML,
-        b3.innerHTML,
-        c1.innerHTML,
-        c2.innerHTML,
-        c3.innerHTML,
-      ];
-      let horizontal = 0;
-      let vertical = 0;
-
-      //Checks for playable spots
-      if (current_table.indexOf("") === -1) announce_winner("It's a tie!");
-
-      for (let u = 0; u < 3; u++) {
-        //Checks for horizontal win
-        if (
-          current_table[horizontal] === current_table[horizontal + 1] &&
-          current_table[horizontal + 1] === current_table[horizontal + 2] &&
-          current_table[horizontal] != ""
-        ) {
-          announce_winner(current_table[horizontal] + " is the winner.");
-          break;
-        }
-        horizontal = horizontal + 3;
-        //Checks for vertical win
-        if (
-          current_table[vertical] === current_table[vertical + 3] &&
-          current_table[vertical + 3] === current_table[vertical + 6] &&
-          current_table[vertical] != ""
-        ) {
-          announce_winner(current_table[vertical] + " is the winner.");
-          break;
-        }
-        vertical = vertical + 1;
-        //Checks for perpendicular win
-        if (
-          current_table[0] === current_table[4] &&
-          current_table[4] === current_table[8] &&
-          current_table[0] != ""
-        ) {
-          announce_winner(current_table[4] + " is the winner.");
-          break;
-        }
-        if (
-          current_table[2] === current_table[4] &&
-          current_table[4] === current_table[6] &&
-          current_table[2] != ""
-        ) {
-          announce_winner(current_table[4] + " is the winner.");
-          break;
-        }
-      }
+      verify_winner();
     };
 
-    //Set table
-    const a1 = document.getElementById("a1");
-    const a2 = document.getElementById("a2");
-    const a3 = document.getElementById("a3");
-    const b1 = document.getElementById("b1");
-    const b2 = document.getElementById("b2");
-    const b3 = document.getElementById("b3");
-    const c1 = document.getElementById("c1");
-    const c2 = document.getElementById("c2");
-    const c3 = document.getElementById("c3");
+    //Sets table
     a1.addEventListener("click", play);
     a2.addEventListener("click", play);
     a3.addEventListener("click", play);
@@ -122,6 +127,26 @@ const start_game = (e) => {
 
   //Against the computer
   else {
+    const play = (e) => {
+      const chosen_position = e.target;
+      if (chosen_position.innerHTML == "") {
+        chosen_position.innerHTML = chosen_symbol;
+      }
+      verify_winner();
+    };
+
+    //Bot plays
+
+    //Sets table
+    a1.addEventListener("click", play);
+    a2.addEventListener("click", play);
+    a3.addEventListener("click", play);
+    b1.addEventListener("click", play);
+    b2.addEventListener("click", play);
+    b3.addEventListener("click", play);
+    c1.addEventListener("click", play);
+    c2.addEventListener("click", play);
+    c3.addEventListener("click", play);
   }
 };
 
