@@ -1,18 +1,24 @@
 const announce_winner = (winner) => {
+
   //Builds the announcement screen
   const body = document.getElementById("body");
   const winner_div = document.createElement("div");
   const p_winner = document.createElement("p");
+  const play_again = document.createElement("a");
 
   //Adds classes
   winner_div.classList.add("winner_div");
+  p_winner.classList.add("p_winner");
 
   //Appending Children
   body.appendChild(winner_div);
   winner_div.appendChild(p_winner);
+  winner_div.appendChild(play_again);
 
   //Giving them values
   p_winner.innerHTML = winner + " is the winner.";
+  play_again.setAttribute("href", "index.html");
+  play_again.innerHTML = "Play Again";
 };
 
 const start_game = (e) => {

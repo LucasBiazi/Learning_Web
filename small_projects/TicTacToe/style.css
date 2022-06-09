@@ -32,6 +32,13 @@ body {
   animation: fade 0.3s reverse;
 }
 
+.winner_div {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .fade {
   animation: fade 0.3s;
 }
@@ -54,7 +61,8 @@ body {
 }
 
 .how_to_play_label,
-.choose_label {
+.choose_label,
+.p_winner {
   font-size: 40px;
   font-weight: bold;
 }
