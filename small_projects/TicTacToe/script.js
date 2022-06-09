@@ -1,3 +1,20 @@
+const announce_winner = (winner) => {
+  //Builds the announcement screen
+  const body = document.getElementById("body");
+  const winner_div = document.createElement("div");
+  const p_winner = document.createElement("p");
+
+  //Adds classes
+  winner_div.classList.add("winner_div");
+
+  //Appending Children
+  body.appendChild(winner_div);
+  winner_div.appendChild(p_winner);
+
+  //Giving them values
+  p_winner.innerHTML = winner + " is the winner.";
+};
+
 const start_game = (e) => {
   //Set game variables
   let chosen_symbol = e.target.innerHTML;
@@ -39,7 +56,7 @@ const start_game = (e) => {
           current_table[horizontal + 1] === current_table[horizontal + 2] &&
           current_table[horizontal] != ""
         ) {
-          console.log(current_table[horizontal] + " wins");
+          announce_winner(current_table[horizontal]);
           break;
         }
         horizontal = horizontal + 3;
@@ -49,7 +66,7 @@ const start_game = (e) => {
           current_table[vertical + 3] === current_table[vertical + 6] &&
           current_table[vertical] != ""
         ) {
-          console.log(current_table[vertical] + " wins");
+          announce_winner(current_table[vertical]);
           break;
         }
         vertical = vertical + 1;
@@ -59,20 +76,18 @@ const start_game = (e) => {
           current_table[4] === current_table[8] &&
           current_table[0] != ""
         ) {
-          console.log(current_table[4] + " wins");
+          announce_winner(current_table[4]);
           break;
         }
         if (
           current_table[2] === current_table[4] &&
           current_table[4] === current_table[6] &&
-          current_table[0] != ""
+          current_table[2] != ""
         ) {
-          console.log(current_table[4] + " wins");
+          announce_winner(current_table[4]);
           break;
         }
       }
-
-      console.log(current_table);
     };
 
     //Set table

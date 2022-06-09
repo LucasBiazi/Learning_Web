@@ -21,7 +21,8 @@ body {
   }
 }
 
-.greet_div {
+.greet_div,
+.winner_div {
   position: absolute;
   width: 100%;
   height: 60vh;
@@ -91,7 +92,7 @@ body {
   margin-left: 10px;
 }
 
-.mode_div select{
+.mode_div select {
   margin-left: 5%;
 }
 
