@@ -1,0 +1,51 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: white;
+  font-size: 25px;
+  padding: 5px;
+}
+
+.main {
+  height: 60vh;
+  width: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+@keyframes jump {
+  0% {
+    margin-bottom: 0px;
+  }
+  70% {
+    margin-bottom: 80px;
+  }
+  100% {
+    margin-bottom: 80px;
+  }
+}
+
+.character {
+  height: 50px;
+  width: 30px;
+  background-color: white;
+}
+
+.character_animated {
+  animation: jump 0.3s alternate 2;
+}
