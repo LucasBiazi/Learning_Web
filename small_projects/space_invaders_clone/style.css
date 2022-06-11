@@ -1,0 +1,29 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 800px;
+  height: 500px;
+  border: 2px white solid;
+  border-radius: 10px;
+}
+
+.space_ship {
+  width: 50px;
+  height: 50px;
+  border: 2px white solid;
+  position: relative;
+  top: 440px;
+  left: 375px;
+}
