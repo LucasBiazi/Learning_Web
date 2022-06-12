@@ -133,9 +133,25 @@ const start_game = (e) => {
         chosen_position.innerHTML = chosen_symbol;
       }
       verify_winner();
-    };
 
-    //Bot plays
+      //Bot plays
+      let current_table = [
+        a1.innerHTML,
+        a2.innerHTML,
+        a3.innerHTML,
+        b1.innerHTML,
+        b2.innerHTML,
+        b3.innerHTML,
+        c1.innerHTML,
+        c2.innerHTML,
+        c3.innerHTML,
+      ];
+
+      //Bot moves
+      
+
+      verify_winner();
+    };
 
     //Sets table
     a1.addEventListener("click", play);
