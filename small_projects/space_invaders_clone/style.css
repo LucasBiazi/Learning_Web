@@ -27,3 +27,21 @@ body {
   top: 440px;
   left: 375px;
 }
+
+@keyframes shoot_bullet {
+  from {
+    top: 340px;
+  }
+  to {
+    top: -50px;
+  }
+}
+
+.div_bullet {
+  left: 17px;
+  width: 15px;
+  height: 40px;
+  background-color: white;
+  position: relative;
+  animation: shoot_bullet 1s;
+}
