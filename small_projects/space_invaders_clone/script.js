@@ -47,40 +47,34 @@ const load_game = () => {
 };
 
 const collision_system = () => {
+  const check_collision = (rec_a, rec_b) => {
+    return (
+      rec_a.x < rec_b.x + rec_b.width &&
+      rec_a.x + rec_a.width > rec_b.x &&
+      rec_a.y < rec_b.y + rec_b.height &&
+      rec_a.height + rec_a.y > rec_b.y
+    );
+  };
   setInterval(() => {
     //Checks if any enemy was hit
+    const e0 = document.getElementById("e0");
     const e1 = document.getElementById("e1");
     const e2 = document.getElementById("e2");
     const e3 = document.getElementById("e3");
     const e4 = document.getElementById("e4");
-    const e5 = document.getElementById("e5");
 
-    const enemies_position = [
-      { x: e1.getBoundingClientRect().x, y: e1.getBoundingClientRect().y },
-      { x: e2.getBoundingClientRect().x, y: e2.getBoundingClientRect().y },
-      { x: e3.getBoundingClientRect().x, y: e3.getBoundingClientRect().y },
-      { x: e4.getBoundingClientRect().x, y: e4.getBoundingClientRect().y },
-      { x: e5.getBoundingClientRect().x, y: e5.getBoundingClientRect().y },
-    ];
+    const enemies_position = [e0, e1, e2, e3, e4];
+    const enemies = document.getElementById("enemies");
 
     if (document.getElementById("bullet")) {
-      const x_bullet = document
-        .getElementById("bullet")
-        .getBoundingClientRect().x;
-      const y_bullet = document
-        .getElementById("bullet")
-        .getBoundingClientRect().y;
+      const bullet = document.getElementById("bullet").getBoundingClientRect();
 
-      console.log(
-        "X: " + enemies_position[0].x + "Y: " + enemies_position[0].y
-      );
-      console.log("X bullet: " + x_bullet + "Y bullet : " + y_bullet);
       for (let i = 0; i < 5; i++) {
         if (
-          enemies_position[i].x === x_bullet &&
-          enemies_position[i].y === y_bullet
-        )
-          alert("Shoot!");
+          check_collision(enemies_position[i].getBoundingClientRect(), bullet)
+        ) {
+          enemies.removeChild(enemies.lastChild);
+        }
       }
     }
   }, 10);
