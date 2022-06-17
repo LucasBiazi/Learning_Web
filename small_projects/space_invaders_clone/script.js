@@ -1,4 +1,4 @@
-const shoot = (x) => {
+const shoot = (top, x) => {
   //Creates bullet
   const main = document.getElementById("main");
   const div_bullet = document.createElement("div");
@@ -7,7 +7,7 @@ const shoot = (x) => {
   main.appendChild(div_bullet);
 
   //Sets position
-  div_bullet.style.top = "340px";
+  div_bullet.style.top = top + "px";
   div_bullet.style.left = x + "px";
 
   //Gives it a class
@@ -38,7 +38,7 @@ const load_game = () => {
         break;
       case "ArrowUp":
         if (document.getElementsByClassName("div_bullet").length === 0)
-          shoot(x + 20);
+          shoot(340, x + 20);
         break;
       default:
         break;
@@ -66,6 +66,14 @@ const collision_system = () => {
     const enemies_position = [e0, e1, e2, e3, e4];
     const enemies = document.getElementById("enemies");
 
+    //Checks for barrier collision
+    const b0 = document.getElementById("b0");
+    const b1 = document.getElementById("b1");
+    const b2 = document.getElementById("b2");
+    const b3 = document.getElementById("b3");
+    const barriers_position = [b0, b1, b2, b3];
+
+    //If there is a bullet in-game
     if (document.getElementById("bullet")) {
       const bullet = document.getElementById("bullet").getBoundingClientRect();
 
@@ -74,6 +82,19 @@ const collision_system = () => {
           check_collision(enemies_position[i].getBoundingClientRect(), bullet)
         ) {
           enemies.removeChild(enemies.lastChild);
+          setTimeout(() => document.getElementById("bullet").remove(), 10);
+        }
+        if (i < 4) {
+          if (
+            check_collision(
+              barriers_position[i].getBoundingClientRect(),
+              bullet
+            )
+          ) {
+            //Takes barrier
+            barriers_position[i].style.opacity = 0;
+            document.getElementById("bullet").remove();
+          }
         }
       }
     }
