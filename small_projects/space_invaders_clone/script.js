@@ -92,8 +92,6 @@ const collision_system = () => {
             )
           ) {
             //Takes barrier
-            barriers_position[i].style.opacity = 0;
-            document.getElementById("bullet").remove();
           }
         }
       }
